@@ -8,11 +8,14 @@ LTPtext='LTP-Testsuite:'
 
 yum -y update
 echo "`date +%H:%M:%S` - $LTPtext Installing prerequisite packages"
-yum install autoconf flex
+yum -y groupinstall development
+yum -y install autoconf flex
 echo "`date +%H:%M:%S` - $LTPtext running configure"
-./configure >/dev/null 2>&1
+# ./configure >/dev/null 2>&1
+./configure
 echo "`date +%H:%M:%S` - $LTPtext running make"
-make all >/dev/null
+#make all >/dev/null
+make all
 echo "`date +%H:%M:%S` - $LTPtext installing"
 make install >/dev/null
 
@@ -25,4 +28,4 @@ grep -c FAIL /opt/ltp/results/result.txt
 echo "`date +%H:%M:%S` - $LTPtext Tests failed: "
 grep FAIL /opt/ltp/results/result.txt
 
-echo "float-bessel and mem01 are known to fail."
+grep -c FAIL /opt/ltp/results/result.txt
