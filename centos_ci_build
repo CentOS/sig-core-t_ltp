@@ -18,7 +18,8 @@ echo "`date +%H:%M:%S` - $LTPtext installing"
 make install >/dev/null
 
 echo "`date +%H:%M:%S` - $LTPtext Starting LTP-Lite testsuite"
-/opt/ltp/runltplite.sh -l result.txt -p >/dev/null
+/opt/ltp/runltplite.sh -l result.txt -p >/dev/null &
+tail -f /opt/ltp/results/result.txt
 
 echo "`date +%H:%M:%S` - $LTPtext Number of FAILed tests: "
 grep -c FAIL /opt/ltp/results/result.txt
