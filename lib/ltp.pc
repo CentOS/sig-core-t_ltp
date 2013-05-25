@@ -1,0 +1,10 @@
+prefix=/opt/ltp
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: LTP
+Description: Linux Test Project
+Version: LTP_VERSION
+Libs: -L${libdir} -lltp
+Cflags: -I${includedir}
