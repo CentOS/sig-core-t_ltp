@@ -17,8 +17,7 @@ echo "`date +%H:%M:%S` - $LTPtext installing"
 make install >/dev/null
 
 echo "`date +%H:%M:%S` - $LTPtext Starting LTP-Lite testsuite: This is expected to take 20-25 mins"
-#/opt/ltp/runltplite.sh -l result.txt -p -q
-/opt/ltp/runalltests.sh -l result.txt -p -q
+/opt/ltp/runltplite.sh -l result.txt -p -q
 
 ret_val=$(grep -c FAIL /opt/ltp/results/result.txt)
 
