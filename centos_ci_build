@@ -7,6 +7,7 @@
 LTPtext='LTP-Testsuite:'
 
 yum -y update
+uname -a
 echo "`date +%H:%M:%S` - $LTPtext Installing prerequisite packages"
 yum -y groupinstall "Development Tools"
 echo "`date +%H:%M:%S` - $LTPtext running configure"
