@@ -81,7 +81,6 @@
 #include "config.h"
 #include "linux_syscall_numbers.h"
 #include "swaponoff.h"
-#include "libswapon.h"
 
 static void setup();
 static void cleanup();
@@ -133,6 +132,7 @@ int main(int ac, char **av)
 /* setup() - performs all ONE TIME setup for this test */
 void setup()
 {
+
 	tst_sig(FORK, DEF_HANDLER, cleanup);
 
 	/* Check whether we are root */
@@ -154,7 +154,21 @@ void setup()
 			 "Cannot do swapon on a file located on a nfs filesystem");
 	}
 
-	make_swapfile(cleanup, "swapfile01");
+	if (!tst_cwd_has_free(65536)) {
+		tst_brkm(TBROK, cleanup,
+			 "Insufficient disk space to create swap file");
+	}
+
+	/*create file */
+	if (system("dd if=/dev/zero of=swapfile01 bs=1024 count=65536 >"
+		   " tmpfile 2>&1") != 0) {
+		tst_brkm(TBROK, cleanup, "Failed to create file for swap");
+	}
+
+	/* make above file a swap file */
+	if (system("mkswap swapfile01 > tmpfile 2>&1") != 0) {
+		tst_brkm(TBROK, cleanup, "Failed to make swapfile");
+	}
 }
 
 /*

@@ -29,8 +29,6 @@
 #include <stdlib.h>
 #include "test.h"
 
-const char *TCID = "check_for_unshare";
-
 int main(int argc, char **argv)
 {
 	void *handle;

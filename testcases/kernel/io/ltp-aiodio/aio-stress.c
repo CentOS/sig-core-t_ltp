@@ -1233,6 +1233,7 @@ typedef void *(*start_routine) (void *);
 int run_workers(struct thread_info *t, int num_threads)
 {
 	int ret;
+	int thread_ret;
 	int i;
 
 	for (i = 0; i < num_threads; i++) {
@@ -1245,7 +1246,7 @@ int run_workers(struct thread_info *t, int num_threads)
 		}
 	}
 	for (i = 0; i < num_threads; i++) {
-		ret = pthread_join(t[i].tid, NULL);
+		ret = pthread_join(t[i].tid, (void *)&thread_ret);
 		if (ret) {
 			perror("pthread_join");
 			exit(1);

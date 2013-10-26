@@ -24,8 +24,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-#include "safe_stdio.h"
-
 char*	safe_basename(const char *file, const int lineno,
 	    void (*cleanup_fn)(void), char *path);
 #define SAFE_BASENAME(cleanup_fn, path)	\

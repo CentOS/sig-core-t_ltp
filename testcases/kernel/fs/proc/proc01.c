@@ -106,7 +106,6 @@ static const struct mapping known_issues[] = {
 	{"read", "/proc/fs/nfsd/filehandle", EINVAL},
 	{"read", "/proc/fs/nfsd/.getfs", EINVAL},
 	{"read", "/proc/fs/nfsd/.getfd", EINVAL},
-	{"read", "/proc/self/net/rpc/use-gss-proxy", EAGAIN},
 	{"", "", 0}
 };
 

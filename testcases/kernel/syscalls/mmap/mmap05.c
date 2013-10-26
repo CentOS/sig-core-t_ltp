@@ -1,22 +1,25 @@
 /*
- * Copyright (c) International Business Machines  Corp., 2001
  *
- * This program is free software;  you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ *   Copyright (c) International Business Machines  Corp., 2001
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY;  without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
- * the GNU General Public License for more details.
+ *   This program is free software;  you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 2 of the License, or
+ *   (at your option) any later version.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program;  if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY;  without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
+ *   the GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program;  if not, write to the Free Software
+ *   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
 /*
+ * Test Name: mmap05
+ *
  * Test Description:
  *  Call mmap() to map a file creating mapped memory with no access under
  *  the following conditions -
@@ -32,9 +35,43 @@
  *  and an attempt to access the contents of the mapped region should give
  *  rise to the signal SIGSEGV.
  *
+ * Algorithm:
+ *  Setup:
+ *   Setup signal handling.
+ *   Pause for SIGUSR1 if option specified.
+ *   Create temporary directory.
+ *
+ *  Test:
+ *   Loop if the proper options are given.
+ *   Execute system call
+ *   Check return code, if system call failed (return=-1)
+ *	Log the errno and Issue a FAIL message.
+ *   Otherwise,
+ *	Verify the Functionality of system call
+ *      if successful,
+ *		Issue Functionality-Pass message.
+ *      Otherwise,
+ *		Issue Functionality-Fail message.
+ *  Cleanup:
+ *   Print errno log and/or timing stats if options given
+ *   Delete the temporary directory created.
+ *
+ * Usage:  <for command-line>
+ *  mmap05 [-c n] [-f] [-i n] [-I x] [-P x] [-t]
+ *     where,  -c n : Run n copies concurrently.
+ *             -f   : Turn off functionality Testing.
+ *	       -i n : Execute test n times.
+ *	       -I x : Execute test for x seconds.
+ *	       -P x : Pause for x seconds between iterations.
+ *	       -t   : Turn on syscall timing.
+ *
  * HISTORY
  *	07/2001 Ported by Wayne Boyer
+ *
+ * RESTRICTIONS:
+ *  None.
  */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -54,22 +91,21 @@
 
 char *TCID = "mmap05";
 int TST_TOTAL = 1;
+size_t page_sz;			/* system page size */
+volatile char *addr;		/* addr of memory mapped region */
+int fildes;			/* file descriptor for temporary file */
+volatile int pass = 0;
+sigjmp_buf env;			/* environment for sigsetjmp/siglongjmp */
 
-static size_t page_sz;
-static volatile char *addr;
-static int fildes;
-static volatile int pass = 0;
-static sigjmp_buf env;
-
-static void setup(void);
-static void cleanup(void);
-static void sig_handler(int sig);
+void setup();			/* Main setup function of test */
+void cleanup();			/* cleanup function for the test */
+void sig_handler();		/* signal handler to catch SIGSEGV */
 
 int main(int ac, char **av)
 {
 	int lc;
 	char *msg;
-	char file_content;
+	char file_content;	/* tempfile content */
 
 	if ((msg = parse_opts(ac, av, NULL, NULL)) != NULL)
 		tst_brkm(TBROK, NULL, "OPTION PARSING ERROR - %s", msg);
@@ -96,6 +132,10 @@ int main(int ac, char **av)
 			continue;
 		}
 
+		/*
+		 * Perform functional verification if test
+		 * executed without (-f) option.
+		 */
 		if (STD_FUNCTIONAL_TEST) {
 
 			/*
@@ -130,17 +170,30 @@ int main(int ac, char **av)
 	}
 	cleanup();
 	tst_exit();
+
 }
 
-static void setup(void)
+/*
+ * setup() - performs all ONE TIME setup for this test.
+ *	     Get the system page size.
+ *	     Create a temporary directory and a file under it.
+ *	     Write some known data into file and close it.
+ *	     Change the mode permissions on file to 0444
+ *	     Re-open the file for reading.
+ */
+void setup(void)
 {
-	char *tst_buff;
+	char *tst_buff;		/* test buffer to hold known data */
 
 	tst_sig(NOFORK, sig_handler, cleanup);
 
 	TEST_PAUSE;
 
-	page_sz = getpagesize();
+	/* Get the system page size */
+	if ((page_sz = getpagesize()) < 0) {
+		tst_brkm(TFAIL, NULL,
+			 "getpagesize() fails to get system page size");
+	}
 
 	/* Allocate space for the test buffer */
 	if ((tst_buff = calloc(page_sz, sizeof(char))) == NULL) {
@@ -193,21 +246,31 @@ static void setup(void)
  *   the signal SIGSEGV while trying to access the contents of memory which
  *   is not accessible.
  */
-static void sig_handler(int sig)
+void sig_handler(sig)
 {
 	if (sig == SIGSEGV) {
 		/* set the global variable and jump back */
 		pass = 1;
 		siglongjmp(env, 1);
-	} else {
+	} else
 		tst_brkm(TBROK, cleanup, "received an unexpected signal: %d",
 			 sig);
-	}
 }
 
-static void cleanup(void)
+/*
+ * cleanup() - performs all ONE TIME cleanup for this test at
+ *             completion or premature exit.
+ *	       Remove the temporary directory created.
+ */
+void cleanup(void)
 {
+	/*
+	 * print timing stats if that option was specified.
+	 * print errno log if that option was specified.
+	 */
 	close(fildes);
+
 	TEST_CLEANUP;
+
 	tst_rmdir();
 }

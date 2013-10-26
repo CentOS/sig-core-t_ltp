@@ -1,19 +1,20 @@
 /*
- * Copyright (c) International Business Machines  Corp., 2001
  *
- * This program is free software;  you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ *   Copyright (c) International Business Machines  Corp., 2001
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY;  without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
- * the GNU General Public License for more details.
+ *   This program is free software;  you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 2 of the License, or
+ *   (at your option) any later version.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program;  if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY;  without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
+ *   the GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program;  if not, write to the Free Software
+ *   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
 /*
@@ -33,34 +34,46 @@
  *	succeeds only when this sigsegv is generated while attempting to
  *	memcpy() on a shared region with only read permission.
  *
+ * USAGE:  <for command-line>
+ *  mprotect03 [-c n] [-f] [-i n] [-I x] [-P x] [-t]
+ *     where,  -c n : Run n copies concurrently.
+ *             -f   : Turn off functionality Testing.
+ *             -i n : Execute test n times.
+ *             -I x : Execute test for x seconds.
+ *             -P x : Pause for x seconds between iterations.
+ *             -t   : Turn on syscall timing.
+ *
  * HISTORY
  *	07/2001 Ported by Wayne Boyer
  *      05/2002 changed over to use tst_sig instead of sigaction
+ *
+ * RESTRICTIONS
+ *	None
  */
 
 #include <errno.h>
 #include <fcntl.h>
 #include <sys/mman.h>
-#include <limits.h>
+#include <limits.h>		/* for PAGESIZE */
 #include <signal.h>
 #include <wait.h>
 #include "test.h"
 #include "usctest.h"
-
-#include "safe_macros.h"
 
 #ifndef PAGESIZE
 #define PAGESIZE 4096
 #endif
 #define FAILED 1
 
-static void cleanup(void);
-static void setup(void);
+void cleanup(void);
+void setup(void);
 
 char *TCID = "mprotect03";
 int TST_TOTAL = 1;
 int status;
 char file1[BUFSIZ];
+
+#ifndef UCLINUX
 
 int main(int ac, char **av)
 {
@@ -71,26 +84,32 @@ int main(int ac, char **av)
 	int fd, pid;
 	char *buf = "abcdefghijklmnopqrstuvwxyz";
 
-	if ((msg = parse_opts(ac, av, NULL, NULL)) != NULL)
+	if ((msg = parse_opts(ac, av, NULL, NULL)) != NULL) {
 		tst_brkm(TBROK, NULL, "OPTION PARSING ERROR - %s", msg);
+	}
 
-	setup();
+	setup();		/* global setup */
 
+	/* The following loop checks looping state if -i option given */
 	for (lc = 0; TEST_LOOPING(lc); lc++) {
+
+		/* reset tst_count in case we are looping */
 		tst_count = 0;
 
-		if ((fd = open(file1, O_RDWR | O_CREAT, 0777)) < 0)
+		if ((fd = open(file1, O_RDWR | O_CREAT, 0777)) < 0) {	//mode must be specified when O_CREAT is in the flag
 			tst_brkm(TBROK, cleanup, "open failed");
+		}
 
-		SAFE_WRITE(cleanup, 1, fd, buf, strlen(buf));
+		(void)write(fd, buf, strlen(buf));
 
 		/*
 		 * mmap the PAGESIZE bytes as read only.
 		 */
 		addr = mmap(0, strlen(buf), PROT_READ | PROT_WRITE, MAP_SHARED,
 			    fd, 0);
-		if (addr == MAP_FAILED)
+		if (addr < 0) {
 			tst_brkm(TBROK, cleanup, "mmap failed");
+		}
 
 		/*
 		 * Try to change the protection to WRITE.
@@ -103,14 +122,16 @@ int main(int ac, char **av)
 					tst_brkm(TBROK, cleanup, "fork failed");
 				}
 
-				if (pid == 0) {
-					memcpy(addr, buf, strlen(buf));
+				if (pid == 0) {	/* child */
+					(void)memcpy((void *)addr, (void *)buf,
+						     strlen(buf));
 					tst_resm(TINFO, "memcpy() did "
 						 "not generate SIGSEGV");
 					exit(1);
 				}
 
-				waitpid(pid, &status, 0);
+				/* parent */
+				(void)waitpid(pid, &status, 0);
 				if (WEXITSTATUS(status) != 0) {
 					tst_resm(TFAIL, "child returned "
 						 "unexpected status");
@@ -137,12 +158,22 @@ int main(int ac, char **av)
 			tst_brkm(TBROK, cleanup, "unlink failed");
 		}
 	}
-	
 	cleanup();
+	tst_exit();
+
+}
+
+#else
+
+int main()
+{
+	tst_resm(TINFO, "Ignore this test on uClinux");
 	tst_exit();
 }
 
-static void sighandler(int sig)
+#endif /* UCLINUX */
+
+void sighandler(int sig)
 {
 	if (sig == SIGSEGV) {
 		tst_resm(TINFO, "received signal: SIGSEGV");
@@ -151,20 +182,32 @@ static void sighandler(int sig)
 		tst_brkm(TBROK, 0, "Unexpected signal %d received.", sig);
 }
 
-static void setup(void)
+/*
+ * setup() - performs all ONE TIME setup for this test
+ */
+void setup()
 {
 	tst_sig(FORK, sighandler, NULL);
 
 	TEST_PAUSE;
 
-	tst_tmpdir();
+	tst_tmpdir();		/* create a temporary directory, cd to it */
 
 	sprintf(file1, "mprotect03.tmp.%d", getpid());
 }
 
-static void cleanup(void)
+/*
+ * cleanup() - performs all the ONE TIME cleanup for this test at completion
+ *	       or premature exit.
+ */
+void cleanup()
 {
+	/*
+	 * print timing status if that option was specified.
+	 * print errno log if that option was specified
+	 */
 	TEST_CLEANUP;
 
 	tst_rmdir();
+
 }

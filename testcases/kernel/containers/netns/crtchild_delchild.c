@@ -31,9 +31,7 @@
 
 #include "libclone.h"
 
-const char *TCID = "crtchild_delchild";
-
-int main(void)
+int main()
 {
 	int status;
 	status = create_net_namespace("delchild.sh", "rename_net.sh");

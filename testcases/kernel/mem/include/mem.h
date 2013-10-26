@@ -21,14 +21,6 @@ static inline void set_node(unsigned long *array, unsigned int node)
 	array[node / BITS_PER_LONG] |= 1UL << (node % BITS_PER_LONG);
 }
 
-static inline void clean_node(unsigned long *array)
-{
-	int i;
-
-	for (i = 0; i < MAXNODES / BITS_PER_LONG; i++)
-		array[i] &= 0UL;
-}
-
 /* OOM */
 
 #define LENGTH			(3UL<<30)
@@ -45,8 +37,6 @@ void testoom(int mempolicy, int lite);
 /* KSM */
 
 #define PATH_KSM		"/sys/kernel/mm/ksm/"
-
-void test_ksm_merge_across_nodes(unsigned long nr_pages);
 
 /* THP */
 

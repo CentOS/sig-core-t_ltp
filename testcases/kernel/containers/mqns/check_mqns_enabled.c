@@ -24,14 +24,12 @@
 #include "test.h"
 #include "mqns.h"
 
-const char *TCID = "check_mqns_enabled";
-
 int dummy(void *v)
 {
 	return 0;
 }
 
-int main(void)
+int main()
 {
 	int pid;
 	mqd_t mqd;

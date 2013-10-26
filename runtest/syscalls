@@ -561,9 +561,6 @@ mmap06 mmap06
 mmap07 mmap07
 mmap08 mmap08
 mmap09 mmap09
-mmap12 mmap12
-mmap13 mmap13
-mmap14 mmap14
 # test is broken, mask it for now.
 #mmap11 mmap11 -i 30000
 
@@ -579,8 +576,6 @@ mount01 mount01 -D DEVICE -T DEVICE_FS_TYPE
 mount02 mount02 -D DEVICE -T DEVICE_FS_TYPE
 mount03 mount03 -D DEVICE -T DEVICE_FS_TYPE
 mount04 mount04 -D DEVICE -T DEVICE_FS_TYPE
-mount05 mount05
-mount06 mount06 -D DEVICE -T DEVICE_FS_TYPE
 
 move_pages01 move_pages.sh 01
 move_pages02 move_pages.sh 02
@@ -745,8 +740,6 @@ process_vm_readv02 process_vm_readv02
 process_vm_readv03 process_vm_readv03
 process_vm_writev01 process_vm01 -w
 process_vm_writev02 process_vm_writev02
-
-prot_hsymlinks prot_hsymlinks
 
 pselect01 pselect01
 pselect01_64 pselect01_64

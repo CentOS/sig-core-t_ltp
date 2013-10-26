@@ -48,9 +48,11 @@
 #include "usctest.h"
 #include "linux_syscall_numbers.h"
 
-#if __NR_cacheflush != __LTP__NR_INVALID_SYSCALL
+#if defined __NR_cacheflush && __NR_cacheflush > 0
 #include <asm/cachectl.h>
 #else
+/* Fake linux_syscall_numbers.h */
+#define __NR_cacheflush		0
 #ifndef   ICACHE
 #define   ICACHE   (1<<0)	/* flush instruction cache        */
 #endif

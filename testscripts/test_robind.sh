@@ -193,7 +193,7 @@ function testdir
         echo >> $PASSLOG
     fi
     # Remove all the temp-files created.
-    eval rm -rf ${TMPDIR}/${dir}/* > /dev/null 2>&1 || true
+    eval rm -rf ${TMPDIR}/${dir}/* > /dev/null 2>&1 /dev/null || true
     unset TDIRECTORY
     popd
 }

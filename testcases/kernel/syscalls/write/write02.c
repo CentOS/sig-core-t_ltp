@@ -135,6 +135,8 @@ void setup(void)
 
 	tst_tmpdir();
 
+// Changed by prashant yendigeri, because the temp file was not being created in//  the $TDIRECTORY
+//      sprintf(pfiln, "./write1.%d", getpid());
 	sprintf(pfiln, "write1.%d", getpid());
 }
 
@@ -153,4 +155,5 @@ void cleanup(void)
 	unlink(pfiln);
 
 	tst_rmdir();
+
 }

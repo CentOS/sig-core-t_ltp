@@ -1,22 +1,25 @@
 /*
- * Copyright (c) International Business Machines  Corp., 2001
  *
- * This program is free software;  you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ *   Copyright (c) International Business Machines  Corp., 2001
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY;  without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
- * the GNU General Public License for more details.
+ *   This program is free software;  you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 2 of the License, or
+ *   (at your option) any later version.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program;  if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY;  without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
+ *   the GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program;  if not, write to the Free Software
+ *   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
 /*
+ * Test Name: stat01
+ *
  * Test Description:
  *  Verify that, stat(2) succeeds to get the status of a file and fills the
  *  stat structure elements.
@@ -42,9 +45,26 @@
  *      	Issue Functionality-Pass message.
  *      Otherwise,
  *		Issue Functionality-Fail message.
+ *  Cleanup:
+ *   Print errno log and/or timing stats if options given
+ *   Delete the temporary directory created.
+ *
+ * Usage:  <for command-line>
+ *  stat01 [-c n] [-e] [-f] [-i n] [-I x] [-p x] [-t]
+ *	where,  -c n : Run n copies concurrently.
+ *		-e   : Turn on errno logging.
+ *		-f   : Turn off functionality Testing.
+ *		-i n : Execute test n times.
+ *		-I x : Execute test for x seconds.
+ *		-P x : Pause for x seconds between iterations.
+ *		-t   : Turn on syscall timing.
+ *
  * History
  *	07/2001 John George
  *		-Ported
+ *
+ * Restrictions:
+ *
  */
 #include <stdio.h>
 #include <sys/types.h>
@@ -68,25 +88,27 @@ char *TCID = "stat01";
 int TST_TOTAL = 1;
 int exp_enos[] = { 0 };
 
-uid_t user_id;
-gid_t group_id;
+uid_t user_id;			/* Owner id of the test file */
+gid_t group_id;			/* Group id of the test file */
 char nobody_uid[] = "nobody";
 struct passwd *ltpuser;
 
-static void setup(void);
-static void cleanup(void);
+void setup();
+void cleanup();
 
 int main(int ac, char **av)
 {
-	struct stat stat_buf;
+	struct stat stat_buf;	/* stat structure buffer */
 	int lc;
 	char *msg;
 
+	msg = parse_opts(ac, av, NULL, NULL);
 	if ((msg = parse_opts(ac, av, NULL, NULL)) != NULL)
 		tst_brkm(TBROK, NULL, "OPTION PARSING ERROR - %s", msg);
 
 	setup();
 
+	/* set the expected errnos... */
 	TEST_EXP_ENOS(exp_enos);
 
 	for (lc = 0; TEST_LOOPING(lc); lc++) {
@@ -131,15 +153,23 @@ int main(int ac, char **av)
 				tst_resm(TINFO, "Call succeeded");
 			}
 		}
-		tst_count++;
+		tst_count++;	/* incr. TEST_LOOP counter */
 	}
 
 	cleanup();
 	tst_exit();
 	tst_exit();
+
 }
 
-void setup(void)
+/*
+ * void
+ * setup() -  Performs setup function for the test.
+ *  Creat a temporary directory and change directory to it.
+ *  Creat a testfile and write some known data into it.
+ *  Get the effective uid/gid of test process.
+ */
+void setup()
 {
 	int i, fd;
 	char tst_buff[BUF_SIZE];
@@ -149,8 +179,9 @@ void setup(void)
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
 
 	/* Switch to nobody user for correct error code collection */
-	if (geteuid() != 0)
+	if (geteuid() != 0) {
 		tst_brkm(TBROK, NULL, "Test must be run as root");
+	}
 	ltpuser = getpwnam(nobody_uid);
 	if (setuid(ltpuser->pw_uid) == -1) {
 		tst_resm(TINFO, "setuid failed to "
@@ -174,8 +205,9 @@ void setup(void)
 	}
 
 	/* Fill the test buffer with the known data */
-	for (i = 0; i < BUF_SIZE; i++)
+	for (i = 0; i < BUF_SIZE; i++) {
 		tst_buff[i] = 'a';
+	}
 
 	/* Write to the file 1k data from the buffer */
 	while (write_len < FILE_SIZE) {
@@ -197,10 +229,20 @@ void setup(void)
 	/* Get the uid/gid of the process */
 	user_id = getuid();
 	group_id = getgid();
+
 }
 
-static void cleanup(void)
+/*
+ * cleanup() - performs all ONE TIME cleanup for this test at
+ *		completion or premature exit.
+ *  Remove the test file and temporary directory created.
+ */
+void cleanup()
 {
+	/*
+	 * print timing stats if that option was specified.
+	 * print errno log if that option was specified.
+	 */
 	TEST_CLEANUP;
 
 	tst_rmdir();

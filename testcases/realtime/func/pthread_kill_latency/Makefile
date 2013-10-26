@@ -22,7 +22,6 @@
 
 top_srcdir		?= ../../../..
 
-INSTALL_TARGETS		:= run_auto.sh
 include $(top_srcdir)/include/mk/env_pre.mk
 include $(abs_srcdir)/../../config.mk
 include $(top_srcdir)/include/mk/generic_leaf_target.mk

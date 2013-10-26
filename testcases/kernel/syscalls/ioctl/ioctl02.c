@@ -213,7 +213,6 @@ void do_child_uclinux(void)
 	/* Set up the signal handlers again */
 	act.sa_handler = (void *)sigterm_handler;
 	act.sa_flags = 0;
-	sigemptyset(&act.sa_mask);
 	(void)sigaction(SIGTERM, &act, 0);
 
 	/* Run the normal child */
@@ -458,7 +457,6 @@ static void setup(void)
 	/* Set up the signal handlers */
 	act.sa_handler = (void *)sigterm_handler;
 	act.sa_flags = 0;
-	sigemptyset(&act.sa_mask);
 	(void)sigaction(SIGTERM, &act, 0);
 
 	act.sa_handler = (void *)sigusr1_handler;

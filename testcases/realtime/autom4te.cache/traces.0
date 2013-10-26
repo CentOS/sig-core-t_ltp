@@ -490,7 +490,7 @@ AC_MSG_RESULT([$am_cv_prog_tar_$1])])
 AC_SUBST([am__tar])
 AC_SUBST([am__untar])
 ])
-m4trace:/root/shub-ltp/ltp-full-20130904/testcases/realtime/m4/check.m4:1: -1- AC_DEFUN([REALTIME_CHECK_PRIO_INHERIT], [
+m4trace:/root/shub-ltp/ltp-full-20130503/testcases/realtime/m4/check.m4:1: -1- AC_DEFUN([REALTIME_CHECK_PRIO_INHERIT], [
 AC_MSG_CHECKING([for PTHREAD_PRIO_INHERIT])
 AC_TRY_COMPILE([
 #ifndef _GNU_SOURCE
@@ -507,7 +507,7 @@ else
 	AC_MSG_RESULT(no)
 fi
 ])
-m4trace:/root/shub-ltp/ltp-full-20130904/testcases/realtime/m4/check.m4:19: -1- AC_DEFUN([REALTIME_CHECK_ROBUST_APIS], [
+m4trace:/root/shub-ltp/ltp-full-20130503/testcases/realtime/m4/check.m4:19: -1- AC_DEFUN([REALTIME_CHECK_ROBUST_APIS], [
 AC_MSG_CHECKING([for pthread_mutexattr_*robust* APIs])
 AC_TRY_COMPILE([
 #ifndef _GNU_SOURCE
@@ -524,7 +524,7 @@ else
 	AC_MSG_RESULT(no)
 fi
 ])
-m4trace:/root/shub-ltp/ltp-full-20130904/testcases/realtime/m4/check.m4:37: -1- AC_DEFUN([REALTIME_CHECK_ROBUST_APIS], [
+m4trace:/root/shub-ltp/ltp-full-20130503/testcases/realtime/m4/check.m4:37: -1- AC_DEFUN([REALTIME_CHECK_ROBUST_APIS], [
 AC_MSG_CHECKING([for pthread_mutexattr_*robust* APIs])
 AC_TRY_COMPILE([
 #ifndef _GNU_SOURCE
@@ -747,7 +747,7 @@ m4trace:configure.in:34: -1- m4_pattern_allow([^HAVE___SYNC_ADD_AND_FETCH$])
 m4trace:configure.in:40: -1- REALTIME_CHECK_PRIO_INHERIT
 m4trace:configure.in:40: -1- _m4_warn([obsolete], [The macro `AC_TRY_COMPILE' is obsolete.
 You should run autoupdate.], [../../lib/autoconf/general.m4:2470: AC_TRY_COMPILE is expanded from...
-/root/shub-ltp/ltp-full-20130904/testcases/realtime/m4/check.m4:1: REALTIME_CHECK_PRIO_INHERIT is expanded from...
+/root/shub-ltp/ltp-full-20130503/testcases/realtime/m4/check.m4:1: REALTIME_CHECK_PRIO_INHERIT is expanded from...
 configure.in:40: the top level])
 m4trace:configure.in:40: -1- m4_pattern_allow([^HAS_PRIORITY_INHERIT$])
 m4trace:configure.in:45: -1- _m4_warn([obsolete], [The macro `AC_TRY_COMPILE' is obsolete.
@@ -757,7 +757,7 @@ m4trace:configure.in:57: -1- m4_pattern_allow([^HAS_PTHREAD_MUTEXATTR_PROTOCOL_F
 m4trace:configure.in:62: -1- REALTIME_CHECK_ROBUST_APIS
 m4trace:configure.in:62: -1- _m4_warn([obsolete], [The macro `AC_TRY_COMPILE' is obsolete.
 You should run autoupdate.], [../../lib/autoconf/general.m4:2470: AC_TRY_COMPILE is expanded from...
-/root/shub-ltp/ltp-full-20130904/testcases/realtime/m4/check.m4:37: REALTIME_CHECK_ROBUST_APIS is expanded from...
+/root/shub-ltp/ltp-full-20130503/testcases/realtime/m4/check.m4:37: REALTIME_CHECK_ROBUST_APIS is expanded from...
 configure.in:62: the top level])
 m4trace:configure.in:62: -1- m4_pattern_allow([^HAS_PTHREAD_MUTEXTATTR_ROBUST_APIS$])
 m4trace:configure.in:64: -1- m4_pattern_allow([^LIB@&t@OBJS$])

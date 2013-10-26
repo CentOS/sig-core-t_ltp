@@ -96,7 +96,7 @@ static void set_global_mempolicy(int mempolicy)
 #if HAVE_NUMA_H && HAVE_LINUX_MEMPOLICY_H && HAVE_NUMAIF_H \
 	&& HAVE_MPOL_CONSTANTS
 	unsigned long nmask[MAXNODES / BITS_PER_LONG] = { 0 };
-	int num_nodes, *nodes;
+	unsigned int num_nodes, *nodes;
 	int ret;
 
 	if (mempolicy) {
@@ -467,83 +467,6 @@ void create_same_memory(int size, int num, int unit)
 				 WEXITSTATUS(status));
 }
 
-void test_ksm_merge_across_nodes(unsigned long nr_pages)
-{
-	char **memory;
-	int i, ret;
-	int num_nodes, *nodes;
-	unsigned long length;
-	unsigned long pagesize;
-	unsigned long nmask[MAXNODES / BITS_PER_LONG] = { 0 };
-
-	ret = get_allowed_nodes_arr(NH_MEMS|NH_CPUS, &num_nodes, &nodes);
-	if (ret != 0)
-		tst_brkm(TBROK|TERRNO, cleanup, "get_allowed_nodes_arr");
-	if (num_nodes < 2) {
-		tst_resm(TINFO, "need NUMA system support");
-		free(nodes);
-		return;
-	}
-
-	pagesize = sysconf(_SC_PAGE_SIZE);
-	length = nr_pages * pagesize;
-
-	memory = (char **)malloc(num_nodes * sizeof(char *));
-	for (i = 0; i < num_nodes; i++) {
-		memory[i] = mmap(NULL, length, PROT_READ|PROT_WRITE,
-			    MAP_ANONYMOUS|MAP_PRIVATE, -1, 0);
-		if (memory[i] == MAP_FAILED)
-			tst_brkm(TBROK|TERRNO, tst_exit, "mmap");
-#ifdef HAVE_MADV_MERGEABLE
-		if (madvise(memory[i], length, MADV_MERGEABLE) == -1)
-			tst_brkm(TBROK|TERRNO, tst_exit, "madvise");
-#endif
-
-#if HAVE_NUMA_H && HAVE_LINUX_MEMPOLICY_H && HAVE_NUMAIF_H \
-	&& HAVE_MPOL_CONSTANTS
-		clean_node(nmask);
-		set_node(nmask, nodes[i]);
-		/*
-		 * Use mbind() to make sure each node contains
-		 * length size memory.
-		 */
-		ret = mbind(memory[i], length, MPOL_BIND, nmask, MAXNODES, 0);
-		if (ret == -1)
-			tst_brkm(TBROK|TERRNO, tst_exit, "mbind");
-#endif
-
-		memset(memory[i], 10, length);
-	}
-
-	SAFE_FILE_PRINTF(cleanup, PATH_KSM "sleep_millisecs", "0");
-	SAFE_FILE_PRINTF(cleanup, PATH_KSM "pages_to_scan", "%ld",
-			 nr_pages * num_nodes);
-	/*
-	 * merge_across_nodes setting can be changed only when there
-	 * are no ksm shared pages in system, so set run 2 to unmerge
-	 * pages first, then to 1 after changing merge_across_nodes,
-	 * to remerge according to the new setting.
-	 */
-	SAFE_FILE_PRINTF(cleanup, PATH_KSM "run", "2");
-	wait_ksmd_done();
-	tst_resm(TINFO, "Start to test KSM with merge_across_nodes=1");
-	SAFE_FILE_PRINTF(cleanup, PATH_KSM "merge_across_nodes", "1");
-	SAFE_FILE_PRINTF(cleanup, PATH_KSM "run", "1");
-	group_check(1, 1, nr_pages * num_nodes - 1, 0, 0, 0,
-		    nr_pages * num_nodes);
-
-	SAFE_FILE_PRINTF(cleanup, PATH_KSM "run", "2");
-	wait_ksmd_done();
-	tst_resm(TINFO, "Start to test KSM with merge_across_nodes=0");
-	SAFE_FILE_PRINTF(cleanup, PATH_KSM "merge_across_nodes", "0");
-	SAFE_FILE_PRINTF(cleanup, PATH_KSM "run", "1");
-	group_check(1, num_nodes, nr_pages * num_nodes - num_nodes,
-		    0, 0, 0, nr_pages * num_nodes);
-
-	SAFE_FILE_PRINTF(cleanup, PATH_KSM "run", "2");
-	wait_ksmd_done();
-}
-
 void check_ksm_options(int *size, int *num, int *unit)
 {
 	if (opt_size) {
@@ -783,17 +706,19 @@ static void gather_node_cpus(char *cpus, long nd)
 	for (i = 0; i < ncpus; i++) {
 		snprintf(path, BUFSIZ,
 			 PATH_SYS_SYSTEM "/node/node%ld/cpu%d", nd, i);
-		if (path_exist(path)) {
+		if (path_exist(path, nd, i)) {
 			snprintf(path1, BUFSIZ, "%s/online", path);
 			/*
-			 * if there is no online knob, then the cpu cannot
-			 * be taken offline
+			 * No cpu0/online knob, as it can't support to
+			 * on/offline cpu0, so if the 'nd' node contains
+			 * cpu0, it should skip to check cpu0/online's value.
 			 */
-			if (path_exist(path1)) {
-				SAFE_FILE_SCANF(cleanup, path1, "%ld", &online);
-				if (online == 0)
-					continue;
-			}
+			if (i == 0)
+				goto next;
+			SAFE_FILE_SCANF(cleanup, path1, "%ld", &online);
+			if (online == 0)
+				continue;
+next:
 			sprintf(buf, "%d,", i);
 			strcat(cpus, buf);
 		}
@@ -867,18 +792,7 @@ void write_cpusets(long nd)
 	write_cpuset_files(CPATH_NEW, "mems", buf);
 
 	gather_node_cpus(cpus, nd);
-	/*
-	 * If the 'nd' node doesn't contain any CPUs,
-	 * the first ID of CPU '0' will be used as
-	 * the value of cpuset.cpus.
-	 */
-	if (strlen(cpus) != 0) {
-		write_cpuset_files(CPATH_NEW, "cpus", cpus);
-	} else {
-		tst_resm(TINFO, "No CPUs in the node%ld; "
-				"using only CPU0", nd);
-		write_cpuset_files(CPATH_NEW, "cpus", "0");
-	}
+	write_cpuset_files(CPATH_NEW, "cpus", cpus);
 
 	SAFE_FILE_PRINTF(NULL, CPATH_NEW "/tasks", "%d", getpid());
 }

@@ -31,8 +31,7 @@ static const int sigs[] = {
 int main(void)
 {
 	sigset_t signalset;
-	unsigned int i;
-	int err = 0;
+	int i, err;
 
 	if (sigemptyset(&signalset) == -1) {
 		perror("sigemptyset failed -- test aborting\n");

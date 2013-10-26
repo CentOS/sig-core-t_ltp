@@ -25,6 +25,8 @@
  *      test.c - Test functions for nftw()
  */
 
+#define _USC_LIB_
+
 #include "nftw.h"
 
 extern int callback(const char *path);

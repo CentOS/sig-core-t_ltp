@@ -36,16 +36,16 @@
  *
  *    OS Testing - Silicon Graphics, Inc.
  *
- *    FUNCTION NAME	: parse_opts
+ *    FUNCTION NAME 	: parse_opts
  *
  *    FUNCTION TITLE	: parse standard & user options for system call tests
  *
  *    SYNOPSIS:
  *	#include "usctest.h"
  *
- *	char *parse_opts(ac, av, user_optarr, uhf)
+ * 	char *parse_opts(ac, av, user_optarr, uhf)
  *	int    ac;
- *	char **av;
+ * 	char **av;
  *	option_t user_optarr[];
  *	void (*uhf)();
  *
@@ -54,7 +54,7 @@
  *    INITIAL RELEASE	: UNICOS 7.0
  *
  *    DESCRIPTION
- *	The parse_opts library routine takes that argc and argv parameters
+ * 	The parse_opts library routine takes that argc and argv parameters
  *	recevied by main() and an array of structures defining user options.
  *	It parses the command line setting flag and argument locations
  *      associated with the options.  It uses getopt to do the actual cmd line
@@ -64,7 +64,7 @@
  *      usc_test_looping, which are called by marcos defined in usctest.h.
  *
  *    RETURN VALUE
- *	parse_opts returns a pointer to an error message if an error occurs.
+ * 	parse_opts returns a pointer to an error message if an error occurs.
  *	This pointer is (char *)NULL if parsing is successful.
  *
  *#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#**/
@@ -84,7 +84,7 @@
 #endif /* UNIT_TEST */
 
 #include "test.h"
-#include "ltp_priv.h"
+#define _USC_LIB_   1		/* indicates we are the library to the usctest.h include */
 #include "usctest.h"
 
 #ifndef USC_COPIES
@@ -375,11 +375,11 @@ char *parse_opts(int ac, char **av, const option_t * user_optarr,
 	/*
 	 * Turn on debug
 	 */
-	if (getenv("USC_DEBUG") != NULL) {
+	if ((ptr = getenv("USC_DEBUG")) != NULL) {
 		Debug = 1;
 		printf("env USC_DEBUG is defined, turning on debug\n");
 	}
-	if (getenv("USC_VERBOSE") != NULL) {
+	if ((ptr = getenv("USC_VERBOSE")) != NULL) {
 		Debug = 1;
 		printf("env USC_VERBOSE is defined, turning on debug\n");
 	}
@@ -413,7 +413,7 @@ char *parse_opts(int ac, char **av, const option_t * user_optarr,
 	 * unset the STD_FUNCTIONAL_TEST variable.
 	 */
 	if (!(options & OPT_nofunccheck) &&
-	    getenv(USC_NO_FUNC_CHECK) != NULL) {
+	    (ptr = getenv(USC_NO_FUNC_CHECK)) != NULL) {
 		STD_FUNCTIONAL_TEST = 0;	/* Turn off functional testing */
 		if (Debug)
 			printf("Using env %s, set STD_FUNCTIONAL_TEST to 0\n",

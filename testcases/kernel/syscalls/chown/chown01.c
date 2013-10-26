@@ -116,7 +116,9 @@
 #include <signal.h>
 #include "test.h"
 #include "usctest.h"
-#include "safe_macros.h"
+
+void setup();
+void cleanup();
 
 char *TCID = "chown01";
 int TST_TOTAL = 1;
@@ -124,10 +126,8 @@ int TST_TOTAL = 1;
 int exp_enos[] = { 0, 0 };
 
 char fname[255];
-int uid, gid;
-
-static void setup(void);
-static void cleanup(void);
+int fd, uid, gid;
+char *buf = "davef";
 
 int main(int ac, char **av)
 {
@@ -163,7 +163,7 @@ int main(int ac, char **av)
 
 }
 
-static void setup(void)
+void setup()
 {
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
@@ -176,11 +176,17 @@ static void setup(void)
 	gid = getegid();
 
 	sprintf(fname, "t_%d", getpid());
-
-	SAFE_FILE_PRINTF(cleanup, fname, "davef");
+	if ((fd = open(fname, O_RDWR | O_CREAT, 0700)) == -1)
+		tst_brkm(TBROK | TERRNO, cleanup,
+			 "open(%s, O_RDWR|O_CREAT,0700) failed", fname);
+	else if (write(fd, &buf, strlen(buf)) == -1)
+		tst_brkm(TBROK | TERRNO, cleanup,
+			 "write(%s, &buf, strlen(buf)) failed", fname);
+	else if (close(fd) == -1)
+		tst_brkm(TBROK | TERRNO, cleanup, "close(%s) failed", fname);
 }
 
-static void cleanup(void)
+void cleanup()
 {
 	TEST_CLEANUP;
 

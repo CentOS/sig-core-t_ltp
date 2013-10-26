@@ -25,6 +25,8 @@
  *      test64.c - Test functions for nftw64()
  */
 
+#define _USC_LIB_
+
 #include "nftw64.h"
 
 extern int callback(const char *path);

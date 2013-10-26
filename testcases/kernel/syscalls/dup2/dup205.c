@@ -112,8 +112,8 @@ int main(int ac, char *av[])
 			}
 		}
 		unlink(pfilname);
-		for (ifile = fildes[0]; ifile < min + 10; ifile++)
-			close(fildes[ifile]);
+		if (ifile > 0)
+			close(fildes[ifile - 1]);
 		if (local_flag == PASSED) {
 			tst_resm(TPASS, "Test passed.");
 		} else {

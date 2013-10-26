@@ -101,10 +101,8 @@ int main(int argc, char *argv[])
 				tst_resm(TPASS, "mremap failed as expected.");
 			else
 				tst_resm(TFAIL | TERRNO, "mremap");
-			munmap(map, pgsz);
 		} else {
 			tst_resm(TFAIL, "mremap succeeded unexpectedly.");
-			munmap(remap, 2 * pgsz);
 		}
 
 		close(fd);

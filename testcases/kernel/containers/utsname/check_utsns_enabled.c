@@ -26,14 +26,12 @@
 #include "../libclone/libclone.h"
 #include "test.h"
 
-const char *TCID = "check_utsns_enabled";
-
 int dummy(void *v)
 {
 	return 0;
 }
 
-int main(void)
+int main()
 {
 	int pid;
 

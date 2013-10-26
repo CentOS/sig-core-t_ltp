@@ -29,9 +29,7 @@
 
 #include "libclone.h"
 
-const char *TCID = "create_container";
-
-int main(void)
+int main()
 {
 	int status;
 	/*

@@ -310,7 +310,6 @@ void dochild(int kid)
 	struct sigaction sact;
 	sact.sa_flags = 0;
 	sact.sa_handler = catch_int;
-	sigemptyset(&sact.sa_mask);
 	(void)sigaction(SIGUSR1, &sact, NULL);
 
 	/* Lock should succeed after blocking and parent releases lock */

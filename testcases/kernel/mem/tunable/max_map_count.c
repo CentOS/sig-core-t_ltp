@@ -14,16 +14,20 @@
  * The program trys to invoke mmap() endless until triggering MAP_FAILED,
  * then read the process's maps file /proc/[pid]/maps, save the line number
  * to map_count variable, and compare it with /proc/sys/vm/max_map_count,
- * map_count should be greater than max_map_count by 1;
- *
- * Note: On some architectures there is a special vma VSYSCALL, which
- * is allocated without incrementing mm->map_count variable. On these
- * architectures each /proc/<pid>/maps has at the end:
+ * map_count should less than max_map_count.
+ * Note: There are two special vmas VDSO and VSYSCALL, which are allocated
+ * via install_special_mapping(), install_specail_mapping() allows the VMAs
+ * to be allocated and inserted without checking the sysctl_map_map_count,
+ * and each /proc/<pid>/maps has both at the end:
+ * # cat /proc/self/maps
  * ...
  * ...
+ * 7fff7b9ff000-7fff7ba00000 r-xp 00000000 00:00 0           [vdso]
  * ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0   [vsyscall]
  *
- * so we ignore this line during /proc/[pid]/maps reading.
+ * so during comparing with map_count and /proc/sys/vm/max_map_count,
+ * we should except the two special vmas from map_count:
+ * map_count -= 2;
  *
  * ********************************************************************
  * Copyright (C) 2012 Red Hat, Inc.
@@ -117,21 +121,6 @@ void cleanup(void)
 	TEST_CLEANUP;
 }
 
-/* This is a filter to exclude map entries which aren't accounted
- * for in the vm_area_struct's map_count.
- */
-#if defined(__x86_64__) || defined(__x86__)
-static int filter_map(char *buf)
-{
-	return strcmp(buf, "[vsyscall]") == 0;
-}
-#else
-static int filter_map(char *buf)
-{
-	return 0;
-}
-#endif
-
 static long count_maps(pid_t pid)
 {
 	FILE *fp;
@@ -147,7 +136,8 @@ static long count_maps(pid_t pid)
 	while (getline(&line, &len, fp) != -1) {
 		/* exclude vdso and vsyscall */
 		if (sscanf(line, "%*p-%*p %*4s %*p %*2d:%*2d %*d %s", buf) ==
-				1 && filter_map(buf))
+		    1 && ((strcmp(buf, "[vdso]") == 0) ||
+			  (strcmp(buf, "[vsyscall]") == 0)))
 			continue;
 		map_count++;
 	}
@@ -212,12 +202,7 @@ static void max_map_count_test(void)
 			tst_brkm(TBROK, cleanup, "child did not stopped");
 
 		map_count = count_maps(pid);
-		/* Note max_maps will be exceeded by one for
-		 * the sysctl setting of max_map_count. This
-		 * is the mm failure point at the time of
-		 * writing this COMMENT!
-		*/
-		if (map_count == (max_maps + 1))
+		if (map_count == max_maps)
 			tst_resm(TPASS, "%ld map entries in total "
 				 "as expected.", max_maps);
 		else

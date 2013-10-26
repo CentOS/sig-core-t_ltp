@@ -42,11 +42,3282 @@ PATH: /root/bin
 ## ----------- ##
 
 configure:1941: checking for a BSD-compatible install
+configure:2009: result: /usr/bin/install -c
+configure:2020: checking whether build environment is sane
+configure:2063: result: yes
+configure:2088: checking for a thread-safe mkdir -p
+configure:2127: result: /bin/mkdir -p
+configure:2140: checking for gawk
+configure:2156: found /usr/bin/gawk
+configure:2167: result: gawk
+configure:2178: checking whether make sets $(MAKE)
+configure:2200: result: yes
+configure:2404: checking build system type
+configure:2422: result: x86_64-unknown-linux-gnu
+configure:2444: checking host system type
+configure:2459: result: x86_64-unknown-linux-gnu
+configure:2530: checking for gcc
+configure:2546: found /usr/bin/gcc
+configure:2557: result: gcc
+configure:2789: checking for C compiler version
+configure:2797: gcc --version >&5
+gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-3)
+Copyright (C) 2010 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:2801: $? = 0
+configure:2808: gcc -v >&5
+Using built-in specs.
+Target: x86_64-redhat-linux
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-languages=c,c++,objc,obj-c++,java,fortran,ada --enable-java-awt=gtk --disable-dssi --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-1.5.0.0/jre --enable-libgcj-multifile --enable-java-maintainer-mode --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --disable-libjava-multilib --with-ppl --with-cloog --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) 
+configure:2812: $? = 0
+configure:2819: gcc -V >&5
+gcc: '-V' option must have argument
+configure:2823: $? = 1
+configure:2846: checking for C compiler default output file name
+configure:2868: gcc    conftest.c  >&5
+configure:2872: $? = 0
+configure:2910: result: a.out
+configure:2929: checking whether the C compiler works
+configure:2939: ./a.out
+configure:2943: $? = 0
+configure:2962: result: yes
+configure:2969: checking whether we are cross compiling
+configure:2971: result: no
+configure:2974: checking for suffix of executables
+configure:2981: gcc -o conftest    conftest.c  >&5
+configure:2985: $? = 0
+configure:3011: result: 
+configure:3017: checking for suffix of object files
+configure:3043: gcc -c   conftest.c >&5
+configure:3047: $? = 0
+configure:3072: result: o
+configure:3076: checking whether we are using the GNU C compiler
+configure:3105: gcc -c   conftest.c >&5
+configure:3112: $? = 0
+configure:3129: result: yes
+configure:3138: checking whether gcc accepts -g
+configure:3168: gcc -c -g  conftest.c >&5
+configure:3175: $? = 0
+configure:3276: result: yes
+configure:3293: checking for gcc option to accept ISO C89
+configure:3367: gcc  -c -g -O2  conftest.c >&5
+configure:3374: $? = 0
+configure:3397: result: none needed
+configure:3426: checking for style of include used by make
+configure:3454: result: GNU
+configure:3479: checking dependency style of gcc
+configure:3570: result: none
+configure:3631: checking for ar
+configure:3647: found /usr/bin/ar
+configure:3658: result: ar
+configure:3685: checking for flex
+configure:3715: result: no
+configure:3685: checking for lex
+configure:3715: result: no
+configure:3937: checking for ranlib
+configure:3953: found /usr/bin/ranlib
+configure:3964: result: ranlib
+configure:4030: checking for strip
+configure:4046: found /usr/bin/strip
+configure:4057: result: strip
+configure:4083: checking for bison
+configure:4113: result: no
+configure:4083: checking for byacc
+configure:4113: result: no
+configure:4130: checking how to run the C preprocessor
+configure:4170: gcc -E  conftest.c
+configure:4177: $? = 0
+configure:4208: gcc -E  conftest.c
+conftest.c:10:28: error: ac_nonexistent.h: No such file or directory
+configure:4215: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:4248: result: gcc -E
+configure:4277: gcc -E  conftest.c
+configure:4284: $? = 0
+configure:4315: gcc -E  conftest.c
+conftest.c:10:28: error: ac_nonexistent.h: No such file or directory
+configure:4322: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:4362: checking for grep that handles long lines and -e
+configure:4422: result: /bin/grep
+configure:4427: checking for egrep
+configure:4491: result: /bin/grep -E
+configure:4496: checking for ANSI C header files
+configure:4526: gcc -c -g -O2  conftest.c >&5
+configure:4533: $? = 0
+configure:4632: gcc -o conftest -g -O2   conftest.c  >&5
+configure:4636: $? = 0
+configure:4642: ./conftest
+configure:4646: $? = 0
+configure:4664: result: yes
+configure:4688: checking for sys/types.h
+configure:4709: gcc -c -g -O2  conftest.c >&5
+configure:4716: $? = 0
+configure:4733: result: yes
+configure:4688: checking for sys/stat.h
+configure:4709: gcc -c -g -O2  conftest.c >&5
+configure:4716: $? = 0
+configure:4733: result: yes
+configure:4688: checking for stdlib.h
+configure:4709: gcc -c -g -O2  conftest.c >&5
+configure:4716: $? = 0
+configure:4733: result: yes
+configure:4688: checking for string.h
+configure:4709: gcc -c -g -O2  conftest.c >&5
+configure:4716: $? = 0
+configure:4733: result: yes
+configure:4688: checking for memory.h
+configure:4709: gcc -c -g -O2  conftest.c >&5
+configure:4716: $? = 0
+configure:4733: result: yes
+configure:4688: checking for strings.h
+configure:4709: gcc -c -g -O2  conftest.c >&5
+configure:4716: $? = 0
+configure:4733: result: yes
+configure:4688: checking for inttypes.h
+configure:4709: gcc -c -g -O2  conftest.c >&5
+configure:4716: $? = 0
+configure:4733: result: yes
+configure:4688: checking for stdint.h
+configure:4709: gcc -c -g -O2  conftest.c >&5
+configure:4716: $? = 0
+configure:4733: result: yes
+configure:4688: checking for unistd.h
+configure:4709: gcc -c -g -O2  conftest.c >&5
+configure:4716: $? = 0
+configure:4733: result: yes
+configure:4791: checking dmapi.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+conftest.c:53:19: error: dmapi.h: No such file or directory
+configure:4815: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <dmapi.h>
+configure:4829: result: no
+configure:4833: checking dmapi.h presence
+configure:4848: gcc -E  conftest.c
+conftest.c:20:19: error: dmapi.h: No such file or directory
+configure:4855: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| /* end confdefs.h.  */
+| #include <dmapi.h>
+configure:4869: result: no
+configure:4902: checking for dmapi.h
+configure:4911: result: no
+configure:4791: checking ifaddrs.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+configure:4815: $? = 0
+configure:4829: result: yes
+configure:4833: checking ifaddrs.h presence
+configure:4848: gcc -E  conftest.c
+configure:4855: $? = 0
+configure:4869: result: yes
+configure:4902: checking for ifaddrs.h
+configure:4911: result: yes
+configure:4791: checking libaio.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+conftest.c:54:20: error: libaio.h: No such file or directory
+configure:4815: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <libaio.h>
+configure:4829: result: no
+configure:4833: checking libaio.h presence
+configure:4848: gcc -E  conftest.c
+conftest.c:21:20: error: libaio.h: No such file or directory
+configure:4855: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| /* end confdefs.h.  */
+| #include <libaio.h>
+configure:4869: result: no
+configure:4902: checking for libaio.h
+configure:4911: result: no
+configure:4791: checking mm.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+conftest.c:54:16: error: mm.h: No such file or directory
+configure:4815: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <mm.h>
+configure:4829: result: no
+configure:4833: checking mm.h presence
+configure:4848: gcc -E  conftest.c
+conftest.c:21:16: error: mm.h: No such file or directory
+configure:4855: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| /* end confdefs.h.  */
+| #include <mm.h>
+configure:4869: result: no
+configure:4902: checking for mm.h
+configure:4911: result: no
+configure:4791: checking pthread.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+configure:4815: $? = 0
+configure:4829: result: yes
+configure:4833: checking pthread.h presence
+configure:4848: gcc -E  conftest.c
+configure:4855: $? = 0
+configure:4869: result: yes
+configure:4902: checking for pthread.h
+configure:4911: result: yes
+configure:4791: checking attr/xattr.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+conftest.c:55:24: error: attr/xattr.h: No such file or directory
+configure:4815: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <attr/xattr.h>
+configure:4829: result: no
+configure:4833: checking attr/xattr.h presence
+configure:4848: gcc -E  conftest.c
+conftest.c:22:24: error: attr/xattr.h: No such file or directory
+configure:4855: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| /* end confdefs.h.  */
+| #include <attr/xattr.h>
+configure:4869: result: no
+configure:4902: checking for attr/xattr.h
+configure:4911: result: no
+configure:4791: checking linux/genetlink.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+In file included from /usr/include/linux/genetlink.h:5,
+                 from conftest.c:55:
+/usr/include/linux/netlink.h:35: error: expected specifier-qualifier-list before 'sa_family_t'
+configure:4815: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <linux/genetlink.h>
+configure:4829: result: no
+configure:4833: checking linux/genetlink.h presence
+configure:4848: gcc -E  conftest.c
+configure:4855: $? = 0
+configure:4869: result: yes
+configure:4882: WARNING: linux/genetlink.h: present but cannot be compiled
+configure:4884: WARNING: linux/genetlink.h:     check for missing prerequisite headers?
+configure:4886: WARNING: linux/genetlink.h: see the Autoconf documentation
+configure:4888: WARNING: linux/genetlink.h:     section "Present But Cannot Be Compiled"
+configure:4890: WARNING: linux/genetlink.h: proceeding with the preprocessor's result
+configure:4892: WARNING: linux/genetlink.h: in the future, the compiler will take precedence
+configure:4902: checking for linux/genetlink.h
+configure:4911: result: yes
+configure:4791: checking linux/mempolicy.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+configure:4815: $? = 0
+configure:4829: result: yes
+configure:4833: checking linux/mempolicy.h presence
+configure:4848: gcc -E  conftest.c
+configure:4855: $? = 0
+configure:4869: result: yes
+configure:4902: checking for linux/mempolicy.h
+configure:4911: result: yes
+configure:4791: checking linux/module.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+conftest.c:57:26: error: linux/module.h: No such file or directory
+configure:4815: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <linux/module.h>
+configure:4829: result: no
+configure:4833: checking linux/module.h presence
+configure:4848: gcc -E  conftest.c
+conftest.c:24:26: error: linux/module.h: No such file or directory
+configure:4855: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| /* end confdefs.h.  */
+| #include <linux/module.h>
+configure:4869: result: no
+configure:4902: checking for linux/module.h
+configure:4911: result: no
+configure:4791: checking linux/netlink.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+In file included from conftest.c:57:
+/usr/include/linux/netlink.h:35: error: expected specifier-qualifier-list before 'sa_family_t'
+configure:4815: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <linux/netlink.h>
+configure:4829: result: no
+configure:4833: checking linux/netlink.h presence
+configure:4848: gcc -E  conftest.c
+configure:4855: $? = 0
+configure:4869: result: yes
+configure:4882: WARNING: linux/netlink.h: present but cannot be compiled
+configure:4884: WARNING: linux/netlink.h:     check for missing prerequisite headers?
+configure:4886: WARNING: linux/netlink.h: see the Autoconf documentation
+configure:4888: WARNING: linux/netlink.h:     section "Present But Cannot Be Compiled"
+configure:4890: WARNING: linux/netlink.h: proceeding with the preprocessor's result
+configure:4892: WARNING: linux/netlink.h: in the future, the compiler will take precedence
+configure:4902: checking for linux/netlink.h
+configure:4911: result: yes
+configure:4791: checking sys/epoll.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+configure:4815: $? = 0
+configure:4829: result: yes
+configure:4833: checking sys/epoll.h presence
+configure:4848: gcc -E  conftest.c
+configure:4855: $? = 0
+configure:4869: result: yes
+configure:4902: checking for sys/epoll.h
+configure:4911: result: yes
+configure:4791: checking sys/inotify.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+configure:4815: $? = 0
+configure:4829: result: yes
+configure:4833: checking sys/inotify.h presence
+configure:4848: gcc -E  conftest.c
+configure:4855: $? = 0
+configure:4869: result: yes
+configure:4902: checking for sys/inotify.h
+configure:4911: result: yes
+configure:4791: checking sys/jfsdmapi.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+conftest.c:60:26: error: sys/jfsdmapi.h: No such file or directory
+configure:4815: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <sys/jfsdmapi.h>
+configure:4829: result: no
+configure:4833: checking sys/jfsdmapi.h presence
+configure:4848: gcc -E  conftest.c
+conftest.c:27:26: error: sys/jfsdmapi.h: No such file or directory
+configure:4855: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| /* end confdefs.h.  */
+| #include <sys/jfsdmapi.h>
+configure:4869: result: no
+configure:4902: checking for sys/jfsdmapi.h
+configure:4911: result: no
+configure:4791: checking sys/prctl.h usability
+configure:4808: gcc -c -g -O2  conftest.c >&5
+configure:4815: $? = 0
+configure:4829: result: yes
+configure:4833: checking sys/prctl.h presence
+configure:4848: gcc -E  conftest.c
+configure:4855: $? = 0
+configure:4869: result: yes
+configure:4902: checking for sys/prctl.h
+configure:4911: result: yes
+configure:5062: checking for mkdtemp
+configure:5118: gcc -o conftest -g -O2   conftest.c  >&5
+configure:5125: $? = 0
+configure:5147: result: yes
+configure:5182: checking sys/capability.h usability
+configure:5199: gcc -c -g -O2  conftest.c >&5
+conftest.c:62:28: error: sys/capability.h: No such file or directory
+configure:5206: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <sys/capability.h>
+configure:5220: result: no
+configure:5224: checking sys/capability.h presence
+configure:5239: gcc -E  conftest.c
+conftest.c:29:28: error: sys/capability.h: No such file or directory
+configure:5246: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| /* end confdefs.h.  */
+| #include <sys/capability.h>
+configure:5260: result: no
+configure:5293: checking for sys/capability.h
+configure:5302: result: no
+configure:5413: checking openssl/sha.h usability
+configure:5430: gcc -c -g -O2  conftest.c >&5
+conftest.c:62:25: error: openssl/sha.h: No such file or directory
+configure:5437: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <openssl/sha.h>
+configure:5451: result: no
+configure:5455: checking openssl/sha.h presence
+configure:5470: gcc -E  conftest.c
+conftest.c:29:25: error: openssl/sha.h: No such file or directory
+configure:5477: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| /* end confdefs.h.  */
+| #include <openssl/sha.h>
+configure:5491: result: no
+configure:5524: checking for openssl/sha.h
+configure:5533: result: no
+configure:5576: checking sys/ptrace.h usability
+configure:5593: gcc -c -g -O2  conftest.c >&5
+configure:5600: $? = 0
+configure:5614: result: yes
+configure:5618: checking sys/ptrace.h presence
+configure:5633: gcc -E  conftest.c
+configure:5640: $? = 0
+configure:5654: result: yes
+configure:5687: checking for sys/ptrace.h
+configure:5696: result: yes
+configure:5576: checking sys/reg.h usability
+configure:5593: gcc -c -g -O2  conftest.c >&5
+configure:5600: $? = 0
+configure:5614: result: yes
+configure:5618: checking sys/reg.h presence
+configure:5633: gcc -E  conftest.c
+configure:5640: $? = 0
+configure:5654: result: yes
+configure:5687: checking for sys/reg.h
+configure:5696: result: yes
+configure:5576: checking asm/ptrace.h usability
+configure:5593: gcc -c -g -O2  conftest.c >&5
+configure:5600: $? = 0
+configure:5614: result: yes
+configure:5618: checking asm/ptrace.h presence
+configure:5633: gcc -E  conftest.c
+configure:5640: $? = 0
+configure:5654: result: yes
+configure:5687: checking for asm/ptrace.h
+configure:5696: result: yes
+configure:5576: checking linux/ptrace.h usability
+configure:5593: gcc -c -g -O2  conftest.c >&5
+configure:5600: $? = 0
+configure:5614: result: yes
+configure:5618: checking linux/ptrace.h presence
+configure:5633: gcc -E  conftest.c
+configure:5640: $? = 0
+configure:5654: result: yes
+configure:5687: checking for linux/ptrace.h
+configure:5696: result: yes
+configure:5713: checking for struct user_regs_struct
+configure:5742: gcc -c -g -O2  -I./testcases/kernel/syscalls/ptrace conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:38: error: invalid application of 'sizeof' to incomplete type 'struct user_regs_struct' 
+configure:5749: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| /* end confdefs.h.  */
+| #include "ptrace.h"
+| 
+| int
+| main ()
+| {
+| if (sizeof (struct user_regs_struct))
+|        return 0;
+|   ;
+|   return 0;
+| }
+configure:5807: result: no
+configure:5817: checking for struct pt_regs
+configure:5846: gcc -c -g -O2  -I./testcases/kernel/syscalls/ptrace conftest.c >&5
+configure:5853: $? = 0
+configure:5881: gcc -c -g -O2  -I./testcases/kernel/syscalls/ptrace conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:38: error: expected expression before ')' token
+configure:5888: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| /* end confdefs.h.  */
+| #include "ptrace.h"
+| 
+| int
+| main ()
+| {
+| if (sizeof ((struct pt_regs)))
+| 	  return 0;
+|   ;
+|   return 0;
+| }
+configure:5911: result: yes
+configure:5922: checking whether PTRACE_GETSIGINFO is declared
+configure:5952: gcc -c -g -O2  -I./testcases/kernel/syscalls/ptrace conftest.c >&5
+configure:5959: $? = 0
+configure:5974: result: yes
+configure:5990: checking whether PTRACE_O_TRACEVFORKDONE is declared
+configure:6020: gcc -c -g -O2  -I./testcases/kernel/syscalls/ptrace conftest.c >&5
+configure:6027: $? = 0
+configure:6042: result: yes
+configure:6058: checking whether PTRACE_SETOPTIONS is declared
+configure:6088: gcc -c -g -O2  -I./testcases/kernel/syscalls/ptrace conftest.c >&5
+configure:6095: $? = 0
+configure:6110: result: yes
+configure:6137: checking for fork
+configure:6193: gcc -o conftest -g -O2   conftest.c  >&5
+conftest.c:60: warning: conflicting types for built-in function 'fork'
+configure:6200: $? = 0
+configure:6222: result: yes
+configure:6137: checking for daemon
+configure:6193: gcc -o conftest -g -O2   conftest.c  >&5
+configure:6200: $? = 0
+configure:6222: result: yes
+configure:6137: checking for vfork
+configure:6193: gcc -o conftest -g -O2   conftest.c  >&5
+configure:6200: $? = 0
+configure:6222: result: yes
+configure:6251: checking for sys/prctl.h
+configure:6258: result: yes
+configure:6393: checking whether PR_CAPBSET_DROP is declared
+configure:6424: gcc -c -g -O2  conftest.c >&5
+configure:6431: $? = 0
+configure:6446: result: yes
+configure:6462: checking whether PR_CAPBSET_READ is declared
+configure:6493: gcc -c -g -O2  conftest.c >&5
+configure:6500: $? = 0
+configure:6515: result: yes
+configure:6555: checking linux/securebits.h usability
+configure:6572: gcc -c -g -O2  conftest.c >&5
+conftest.c:76:30: error: linux/securebits.h: No such file or directory
+configure:6579: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <linux/securebits.h>
+configure:6593: result: no
+configure:6597: checking linux/securebits.h presence
+configure:6612: gcc -E  conftest.c
+conftest.c:43:30: error: linux/securebits.h: No such file or directory
+configure:6619: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| /* end confdefs.h.  */
+| #include <linux/securebits.h>
+configure:6633: result: no
+configure:6666: checking for linux/securebits.h
+configure:6675: result: no
+configure:6714: checking selinux/selinux.h usability
+configure:6731: gcc -c -g -O2  conftest.c >&5
+conftest.c:76:29: error: selinux/selinux.h: No such file or directory
+configure:6738: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <selinux/selinux.h>
+configure:6752: result: no
+configure:6756: checking selinux/selinux.h presence
+configure:6771: gcc -E  conftest.c
+conftest.c:43:29: error: selinux/selinux.h: No such file or directory
+configure:6778: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| /* end confdefs.h.  */
+| #include <selinux/selinux.h>
+configure:6792: result: no
+configure:6825: checking for selinux/selinux.h
+configure:6834: result: no
+configure:6929: checking for struct sigaction.sa_sigaction
+configure:6960: gcc -c -g -O2  conftest.c >&5
+configure:6967: $? = 0
+configure:7028: result: yes
+configure:7047: checking for libaio.h
+configure:7054: result: no
+configure:7346: gcc -o conftest -g -O2   conftest.c  >&5
+conftest.c:46:22: error: keyutils.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:48: error: 'key_serial_t' undeclared (first use in this function)
+conftest.c:48: error: (Each undeclared identifier is reported only once
+conftest.c:48: error: for each function it appears in.)
+conftest.c:48: error: expected ';' before 'akey'
+conftest.c:49: error: 'KEYCTL_READ' undeclared (first use in this function)
+conftest.c:49: error: 'akey' undeclared (first use in this function)
+configure:7353: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| /* end confdefs.h.  */
+| 
+| #include <sys/types.h>
+| #include <keyutils.h>
+| int main(void) {
+| 	key_serial_t akey;
+| 	(void) keyctl(KEYCTL_READ, akey);
+| 	return 0;
+| }
+configure:7390: checking for modify_ldt
+configure:7446: gcc -o conftest -g -O2   conftest.c  >&5
+configure:7453: $? = 0
+configure:7475: result: yes
+configure:7503: checking asm/ldt.h usability
+configure:7520: gcc -c -g -O2  conftest.c >&5
+configure:7527: $? = 0
+configure:7541: result: yes
+configure:7545: checking asm/ldt.h presence
+configure:7560: gcc -E  conftest.c
+configure:7567: $? = 0
+configure:7581: result: yes
+configure:7614: checking for asm/ldt.h
+configure:7623: result: yes
+configure:7639: checking for struct user_desc
+configure:7669: gcc -c -g -O2  conftest.c >&5
+configure:7676: $? = 0
+configure:7705: gcc -c -g -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:53: error: expected expression before ')' token
+configure:7712: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| /* end confdefs.h.  */
+| #include <asm/ldt.h>
+| 
+| 
+| int
+| main ()
+| {
+| if (sizeof ((struct user_desc)))
+| 	  return 0;
+|   ;
+|   return 0;
+| }
+configure:7735: result: yes
+configure:7745: checking for struct modify_ldt_ldt_s
+configure:7775: gcc -c -g -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:54: error: invalid application of 'sizeof' to incomplete type 'struct modify_ldt_ldt_s' 
+configure:7782: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| /* end confdefs.h.  */
+| #include <asm/ldt.h>
+| 
+| 
+| int
+| main ()
+| {
+| if (sizeof (struct modify_ldt_ldt_s))
+|        return 0;
+|   ;
+|   return 0;
+| }
+configure:7841: result: no
+configure:7860: checking for linux/mempolicy.h
+configure:7867: result: yes
+configure:8003: checking for numa_alloc_onnode in -lnuma
+configure:8038: gcc -o conftest -g -O2   conftest.c -lnuma   >&5
+/usr/bin/ld: cannot find -lnuma
+collect2: ld returned 1 exit status
+configure:8045: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char numa_alloc_onnode ();
+| int
+| main ()
+| {
+| return numa_alloc_onnode ();
+|   ;
+|   return 0;
+| }
+configure:8066: result: no
+configure:8079: checking for numa_move_pages in -lnuma
+configure:8114: gcc -o conftest -g -O2   conftest.c -lnuma   >&5
+/usr/bin/ld: cannot find -lnuma
+collect2: ld returned 1 exit status
+configure:8121: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char numa_move_pages ();
+| int
+| main ()
+| {
+| return numa_move_pages ();
+|   ;
+|   return 0;
+| }
+configure:8142: result: no
+configure:8156: checking for numa_available in -lnuma
+configure:8191: gcc -o conftest -g -O2   conftest.c -lnuma   >&5
+/usr/bin/ld: cannot find -lnuma
+collect2: ld returned 1 exit status
+configure:8198: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char numa_available ();
+| int
+| main ()
+| {
+| return numa_available ();
+|   ;
+|   return 0;
+| }
+configure:8219: result: no
+configure:8228: checking whether MPOL_BIND is declared
+configure:8258: gcc -c -g -O2  conftest.c >&5
+conftest.c:49:20: error: numaif.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:55: error: 'MPOL_BIND' undeclared (first use in this function)
+conftest.c:55: error: (Each undeclared identifier is reported only once
+conftest.c:55: error: for each function it appears in.)
+configure:8265: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| /* end confdefs.h.  */
+| #include <numaif.h>
+| 
+| int
+| main ()
+| {
+| #ifndef MPOL_BIND
+|   (void) MPOL_BIND;
+| #endif
+| 
+|   ;
+|   return 0;
+| }
+configure:8280: result: no
+configure:8296: checking whether MPOL_DEFAULT is declared
+configure:8326: gcc -c -g -O2  conftest.c >&5
+conftest.c:50:20: error: numaif.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:56: error: 'MPOL_DEFAULT' undeclared (first use in this function)
+conftest.c:56: error: (Each undeclared identifier is reported only once
+conftest.c:56: error: for each function it appears in.)
+configure:8333: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| /* end confdefs.h.  */
+| #include <numaif.h>
+| 
+| int
+| main ()
+| {
+| #ifndef MPOL_DEFAULT
+|   (void) MPOL_DEFAULT;
+| #endif
+| 
+|   ;
+|   return 0;
+| }
+configure:8348: result: no
+configure:8364: checking whether MPOL_F_ADDR is declared
+configure:8394: gcc -c -g -O2  conftest.c >&5
+conftest.c:51:20: error: numaif.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:57: error: 'MPOL_F_ADDR' undeclared (first use in this function)
+conftest.c:57: error: (Each undeclared identifier is reported only once
+conftest.c:57: error: for each function it appears in.)
+configure:8401: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| /* end confdefs.h.  */
+| #include <numaif.h>
+| 
+| int
+| main ()
+| {
+| #ifndef MPOL_F_ADDR
+|   (void) MPOL_F_ADDR;
+| #endif
+| 
+|   ;
+|   return 0;
+| }
+configure:8416: result: no
+configure:8432: checking whether MPOL_F_MEMS_ALLOWED is declared
+configure:8462: gcc -c -g -O2  conftest.c >&5
+conftest.c:52:20: error: numaif.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:58: error: 'MPOL_F_MEMS_ALLOWED' undeclared (first use in this function)
+conftest.c:58: error: (Each undeclared identifier is reported only once
+conftest.c:58: error: for each function it appears in.)
+configure:8469: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| /* end confdefs.h.  */
+| #include <numaif.h>
+| 
+| int
+| main ()
+| {
+| #ifndef MPOL_F_MEMS_ALLOWED
+|   (void) MPOL_F_MEMS_ALLOWED;
+| #endif
+| 
+|   ;
+|   return 0;
+| }
+configure:8484: result: no
+configure:8500: checking whether MPOL_F_NODE is declared
+configure:8530: gcc -c -g -O2  conftest.c >&5
+conftest.c:53:20: error: numaif.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:59: error: 'MPOL_F_NODE' undeclared (first use in this function)
+conftest.c:59: error: (Each undeclared identifier is reported only once
+conftest.c:59: error: for each function it appears in.)
+configure:8537: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| #define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+| /* end confdefs.h.  */
+| #include <numaif.h>
+| 
+| int
+| main ()
+| {
+| #ifndef MPOL_F_NODE
+|   (void) MPOL_F_NODE;
+| #endif
+| 
+|   ;
+|   return 0;
+| }
+configure:8552: result: no
+configure:8568: checking whether MPOL_INTERLEAVE is declared
+configure:8598: gcc -c -g -O2  conftest.c >&5
+conftest.c:54:20: error: numaif.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:60: error: 'MPOL_INTERLEAVE' undeclared (first use in this function)
+conftest.c:60: error: (Each undeclared identifier is reported only once
+conftest.c:60: error: for each function it appears in.)
+configure:8605: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| #define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+| #define HAVE_DECL_MPOL_F_NODE 0
+| /* end confdefs.h.  */
+| #include <numaif.h>
+| 
+| int
+| main ()
+| {
+| #ifndef MPOL_INTERLEAVE
+|   (void) MPOL_INTERLEAVE;
+| #endif
+| 
+|   ;
+|   return 0;
+| }
+configure:8620: result: no
+configure:8636: checking whether MPOL_PREFERRED is declared
+configure:8666: gcc -c -g -O2  conftest.c >&5
+conftest.c:55:20: error: numaif.h: No such file or directory
+conftest.c: In function 'main':
+conftest.c:61: error: 'MPOL_PREFERRED' undeclared (first use in this function)
+conftest.c:61: error: (Each undeclared identifier is reported only once
+conftest.c:61: error: for each function it appears in.)
+configure:8673: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| #define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+| #define HAVE_DECL_MPOL_F_NODE 0
+| #define HAVE_DECL_MPOL_INTERLEAVE 0
+| /* end confdefs.h.  */
+| #include <numaif.h>
+| 
+| int
+| main ()
+| {
+| #ifndef MPOL_PREFERRED
+|   (void) MPOL_PREFERRED;
+| #endif
+| 
+|   ;
+|   return 0;
+| }
+configure:8688: result: no
+configure:7871: checking numa.h usability
+configure:7888: gcc -c -g -O2  conftest.c >&5
+conftest.c:89:18: error: numa.h: No such file or directory
+configure:7895: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| #define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+| #define HAVE_DECL_MPOL_F_NODE 0
+| #define HAVE_DECL_MPOL_INTERLEAVE 0
+| #define HAVE_DECL_MPOL_PREFERRED 0
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <numa.h>
+configure:7909: result: no
+configure:7913: checking numa.h presence
+configure:7928: gcc -E  conftest.c
+conftest.c:56:18: error: numa.h: No such file or directory
+configure:7935: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| #define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+| #define HAVE_DECL_MPOL_F_NODE 0
+| #define HAVE_DECL_MPOL_INTERLEAVE 0
+| #define HAVE_DECL_MPOL_PREFERRED 0
+| /* end confdefs.h.  */
+| #include <numa.h>
+configure:7949: result: no
+configure:7982: checking for numa.h
+configure:7991: result: no
+configure:7871: checking numaif.h usability
+configure:7888: gcc -c -g -O2  conftest.c >&5
+conftest.c:89:20: error: numaif.h: No such file or directory
+configure:7895: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| #define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+| #define HAVE_DECL_MPOL_F_NODE 0
+| #define HAVE_DECL_MPOL_INTERLEAVE 0
+| #define HAVE_DECL_MPOL_PREFERRED 0
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <numaif.h>
+configure:7909: result: no
+configure:7913: checking numaif.h presence
+configure:7928: gcc -E  conftest.c
+conftest.c:56:20: error: numaif.h: No such file or directory
+configure:7935: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| #define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+| #define HAVE_DECL_MPOL_F_NODE 0
+| #define HAVE_DECL_MPOL_INTERLEAVE 0
+| #define HAVE_DECL_MPOL_PREFERRED 0
+| /* end confdefs.h.  */
+| #include <numaif.h>
+configure:7949: result: no
+configure:7982: checking for numaif.h
+configure:7991: result: no
+configure:8743: gcc -o conftest -g -O2   conftest.c  >&5
+configure:8750: $? = 0
+configure:8846: checking for signalfd
+configure:8902: gcc -o conftest -g -O2   conftest.c  >&5
+configure:8909: $? = 0
+configure:8931: result: yes
+configure:8960: checking sys/signalfd.h usability
+configure:8977: gcc -c -g -O2  conftest.c >&5
+configure:8984: $? = 0
+configure:8998: result: yes
+configure:9002: checking sys/signalfd.h presence
+configure:9017: gcc -E  conftest.c
+configure:9024: $? = 0
+configure:9038: result: yes
+configure:9071: checking for sys/signalfd.h
+configure:9080: result: yes
+configure:8960: checking linux/types.h usability
+configure:8977: gcc -c -g -O2  conftest.c >&5
+configure:8984: $? = 0
+configure:8998: result: yes
+configure:9002: checking linux/types.h presence
+configure:9017: gcc -E  conftest.c
+configure:9024: $? = 0
+configure:9038: result: yes
+configure:9071: checking for linux/types.h
+configure:9080: result: yes
+configure:9100: checking for linux/signalfd.h
+configure:9124: gcc -c -g -O2  conftest.c >&5
+In file included from /usr/include/asm/fcntl.h:1,
+                 from /usr/include/linux/fcntl.h:4,
+                 from /usr/include/linux/signalfd.h:13,
+                 from conftest.c:65:
+/usr/include/asm-generic/fcntl.h:96: error: expected specifier-qualifier-list before 'pid_t'
+configure:9131: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| #define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+| #define HAVE_DECL_MPOL_F_NODE 0
+| #define HAVE_DECL_MPOL_INTERLEAVE 0
+| #define HAVE_DECL_MPOL_PREFERRED 0
+| #define HAVE_QUOTAV2 1
+| #define HAVE_SIGNALFD 1
+| #define HAVE_SYS_SIGNALFD_H 1
+| #define HAVE_LINUX_TYPES_H 1
+| /* end confdefs.h.  */
+| #ifdef HAVE_LINUX_TYPES_H
+| #include <linux/types.h>
+| #endif
+| 
+| 
+| #include <linux/signalfd.h>
+configure:9148: result: no
+configure:9100: checking for signalfd.h
+configure:9124: gcc -c -g -O2  conftest.c >&5
+conftest.c:65:22: error: signalfd.h: No such file or directory
+configure:9131: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| #define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+| #define HAVE_DECL_MPOL_F_NODE 0
+| #define HAVE_DECL_MPOL_INTERLEAVE 0
+| #define HAVE_DECL_MPOL_PREFERRED 0
+| #define HAVE_QUOTAV2 1
+| #define HAVE_SIGNALFD 1
+| #define HAVE_SYS_SIGNALFD_H 1
+| #define HAVE_LINUX_TYPES_H 1
+| /* end confdefs.h.  */
+| #ifdef HAVE_LINUX_TYPES_H
+| #include <linux/types.h>
+| #endif
+| 
+| 
+| #include <signalfd.h>
+configure:9148: result: no
+configure:9419: checking for unshare
+configure:9475: gcc -o conftest -g -O2   conftest.c  >&5
+configure:9482: $? = 0
+configure:9504: result: yes
+configure:9529: checking for linux/taskstats.h
+configure:9552: gcc -c -g -O2  conftest.c >&5
+configure:9559: $? = 0
+configure:9576: result: yes
+configure:9585: checking for struct taskstats.freepages_count
+configure:9615: gcc -c -g -O2  conftest.c >&5
+configure:9622: $? = 0
+configure:9682: result: yes
+configure:9692: checking for struct taskstats.nvcsw
+configure:9722: gcc -c -g -O2  conftest.c >&5
+configure:9729: $? = 0
+configure:9789: result: yes
+configure:9799: checking for struct taskstats.read_bytes
+configure:9829: gcc -c -g -O2  conftest.c >&5
+configure:9836: $? = 0
+configure:9896: result: yes
+configure:9913: checking whether CLOCK_MONOTONIC_RAW is declared
+configure:9948: gcc -c -g -O2  conftest.c >&5
+configure:9955: $? = 0
+configure:9970: result: yes
+configure:9986: checking whether CLOCK_REALTIME_COARSE is declared
+configure:10021: gcc -c -g -O2  conftest.c >&5
+configure:10028: $? = 0
+configure:10043: result: yes
+configure:10059: checking whether CLOCK_MONOTONIC_COARSE is declared
+configure:10094: gcc -c -g -O2  conftest.c >&5
+configure:10101: $? = 0
+configure:10116: result: yes
+configure:10135: checking whether MADV_MERGEABLE is declared
+configure:10165: gcc -c -g -O2  conftest.c >&5
+configure:10172: $? = 0
+configure:10187: result: yes
+configure:10232: checking sys/acl.h usability
+configure:10249: gcc -c -g -O2  conftest.c >&5
+conftest.c:103:21: error: sys/acl.h: No such file or directory
+configure:10256: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| #define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+| #define HAVE_DECL_MPOL_F_NODE 0
+| #define HAVE_DECL_MPOL_INTERLEAVE 0
+| #define HAVE_DECL_MPOL_PREFERRED 0
+| #define HAVE_QUOTAV2 1
+| #define HAVE_SIGNALFD 1
+| #define HAVE_SYS_SIGNALFD_H 1
+| #define HAVE_LINUX_TYPES_H 1
+| #define HAVE_UNSHARE 1
+| #define HAVE_LINUX_TASKSTATS_H 1
+| #define HAVE_STRUCT_TASKSTATS_FREEPAGES_COUNT 1
+| #define HAVE_STRUCT_TASKSTATS_NVCSW 1
+| #define HAVE_STRUCT_TASKSTATS_READ_BYTES 1
+| #define HAVE_DECL_CLOCK_MONOTONIC_RAW 1
+| #define HAVE_DECL_CLOCK_REALTIME_COARSE 1
+| #define HAVE_DECL_CLOCK_MONOTONIC_COARSE 1
+| #define HAVE_DECL_MADV_MERGEABLE 1
+| #define HAVE_MADV_MERGEABLE 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <sys/acl.h>
+configure:10270: result: no
+configure:10274: checking sys/acl.h presence
+configure:10289: gcc -E  conftest.c
+conftest.c:70:21: error: sys/acl.h: No such file or directory
+configure:10296: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| #define PACKAGE_NAME "ltp"
+| #define PACKAGE_TARNAME "ltp"
+| #define PACKAGE_VERSION "LTP_VERSION"
+| #define PACKAGE_STRING "ltp LTP_VERSION"
+| #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+| #define PACKAGE "ltp"
+| #define VERSION "LTP_VERSION"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_IFADDRS_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_LINUX_GENETLINK_H 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_LINUX_NETLINK_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE_SYS_INOTIFY_H 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_MKDTEMP 1
+| #define HAVE_SYS_PTRACE_H 1
+| #define HAVE_SYS_REG_H 1
+| #define HAVE_ASM_PTRACE_H 1
+| #define HAVE_LINUX_PTRACE_H 1
+| #define HAVE_STRUCT_PT_REGS 1
+| #define HAVE_DECL_PTRACE_GETSIGINFO 1
+| #define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+| #define HAVE_DECL_PTRACE_SETOPTIONS 1
+| #define HAVE_FORK 1
+| #define HAVE_DAEMON 1
+| #define HAVE_VFORK 1
+| #define HAVE_SYS_PRCTL_H 1
+| #define HAVE_DECL_PR_CAPBSET_DROP 1
+| #define HAVE_DECL_PR_CAPBSET_READ 1
+| #define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+| #define HAVE_KEYCTL_SYSCALL 0
+| #define HAVE_MODIFY_LDT 1
+| #define HAVE_ASM_LDT_H 1
+| #define HAVE_STRUCT_USER_DESC 1
+| #define HAVE_LINUX_MEMPOLICY_H 1
+| #define HAVE_DECL_MPOL_BIND 0
+| #define HAVE_DECL_MPOL_DEFAULT 0
+| #define HAVE_DECL_MPOL_F_ADDR 0
+| #define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+| #define HAVE_DECL_MPOL_F_NODE 0
+| #define HAVE_DECL_MPOL_INTERLEAVE 0
+| #define HAVE_DECL_MPOL_PREFERRED 0
+| #define HAVE_QUOTAV2 1
+| #define HAVE_SIGNALFD 1
+| #define HAVE_SYS_SIGNALFD_H 1
+| #define HAVE_LINUX_TYPES_H 1
+| #define HAVE_UNSHARE 1
+| #define HAVE_LINUX_TASKSTATS_H 1
+| #define HAVE_STRUCT_TASKSTATS_FREEPAGES_COUNT 1
+| #define HAVE_STRUCT_TASKSTATS_NVCSW 1
+| #define HAVE_STRUCT_TASKSTATS_READ_BYTES 1
+| #define HAVE_DECL_CLOCK_MONOTONIC_RAW 1
+| #define HAVE_DECL_CLOCK_REALTIME_COARSE 1
+| #define HAVE_DECL_CLOCK_MONOTONIC_COARSE 1
+| #define HAVE_DECL_MADV_MERGEABLE 1
+| #define HAVE_MADV_MERGEABLE 1
+| /* end confdefs.h.  */
+| #include <sys/acl.h>
+configure:10310: result: no
+configure:10343: checking for sys/acl.h
+configure:10352: result: no
+configure:10373: checking for FS_IOC_GETFLAGS and FS_IOC_SETFLAGS in <linux/fs.h>
+configure:10396: gcc -c -g -O2  conftest.c >&5
+configure:10403: $? = 0
+configure:10411: result: yes
+configure:10426: checking for MREMAP_FIXED in <sys/mman.h>
+configure:10450: gcc -c -g -O2  conftest.c >&5
+configure:10457: $? = 0
+configure:10465: result: yes
+configure:10601: creating ./config.status
+
+## ---------------------- ##
+## Running config.status. ##
+## ---------------------- ##
+
+This file was extended by ltp config.status LTP_VERSION, which was
+generated by GNU Autoconf 2.63.  Invocation command line was
+
+  CONFIG_FILES    = 
+  CONFIG_HEADERS  = 
+  CONFIG_LINKS    = 
+  CONFIG_COMMANDS = 
+  $ ./config.status 
+
+on CentOS6.netbook
+
+config.status:861: creating include/mk/config.mk
+config.status:861: creating include/mk/features.mk
+config.status:861: creating lib/ltp.pc
+config.status:861: creating ltp-devel.spec
+config.status:861: creating m4/Makefile
+config.status:861: creating execltp
+config.status:861: creating README.ltp-devel
+config.status:861: creating include/config.h
+config.status:1135: executing depfiles commands
 
 ## ---------------- ##
 ## Cache variables. ##
 ## ---------------- ##
 
+ac_cv_build=x86_64-unknown-linux-gnu
+ac_cv_c_compiler_gnu=yes
 ac_cv_env_CC_set=
 ac_cv_env_CC_value=
 ac_cv_env_CFLAGS_set=
@@ -69,119 +3340,210 @@ ac_cv_env_host_alias_set=
 ac_cv_env_host_alias_value=
 ac_cv_env_target_alias_set=
 ac_cv_env_target_alias_value=
+ac_cv_func_daemon=yes
+ac_cv_func_fork=yes
+ac_cv_func_mkdtemp=yes
+ac_cv_func_modify_ldt=yes
+ac_cv_func_signalfd=yes
+ac_cv_func_unshare=yes
+ac_cv_func_vfork=yes
+ac_cv_have_decl_CLOCK_MONOTONIC_COARSE=yes
+ac_cv_have_decl_CLOCK_MONOTONIC_RAW=yes
+ac_cv_have_decl_CLOCK_REALTIME_COARSE=yes
+ac_cv_have_decl_MADV_MERGEABLE=yes
+ac_cv_have_decl_MPOL_BIND=no
+ac_cv_have_decl_MPOL_DEFAULT=no
+ac_cv_have_decl_MPOL_F_ADDR=no
+ac_cv_have_decl_MPOL_F_MEMS_ALLOWED=no
+ac_cv_have_decl_MPOL_F_NODE=no
+ac_cv_have_decl_MPOL_INTERLEAVE=no
+ac_cv_have_decl_MPOL_PREFERRED=no
+ac_cv_have_decl_PR_CAPBSET_DROP=yes
+ac_cv_have_decl_PR_CAPBSET_READ=yes
+ac_cv_have_decl_PTRACE_GETSIGINFO=yes
+ac_cv_have_decl_PTRACE_O_TRACEVFORKDONE=yes
+ac_cv_have_decl_PTRACE_SETOPTIONS=yes
+ac_cv_header_asm_ldt_h=yes
+ac_cv_header_asm_ptrace_h=yes
+ac_cv_header_attr_xattr_h=no
+ac_cv_header_dmapi_h=no
+ac_cv_header_ifaddrs_h=yes
+ac_cv_header_inttypes_h=yes
+ac_cv_header_libaio_h=no
+ac_cv_header_linux_genetlink_h=yes
+ac_cv_header_linux_mempolicy_h=yes
+ac_cv_header_linux_module_h=no
+ac_cv_header_linux_netlink_h=yes
+ac_cv_header_linux_ptrace_h=yes
+ac_cv_header_linux_securebits_h=no
+ac_cv_header_linux_signalfd_h=no
+ac_cv_header_linux_taskstats_h=yes
+ac_cv_header_linux_types_h=yes
+ac_cv_header_memory_h=yes
+ac_cv_header_mm_h=no
+ac_cv_header_numa_h=no
+ac_cv_header_numaif_h=no
+ac_cv_header_openssl_sha_h=no
+ac_cv_header_pthread_h=yes
+ac_cv_header_selinux_selinux_h=no
+ac_cv_header_signalfd_h=no
+ac_cv_header_stdc=yes
+ac_cv_header_stdint_h=yes
+ac_cv_header_stdlib_h=yes
+ac_cv_header_string_h=yes
+ac_cv_header_strings_h=yes
+ac_cv_header_sys_acl_h=no
+ac_cv_header_sys_capability_h=no
+ac_cv_header_sys_epoll_h=yes
+ac_cv_header_sys_inotify_h=yes
+ac_cv_header_sys_jfsdmapi_h=no
+ac_cv_header_sys_prctl_h=yes
+ac_cv_header_sys_ptrace_h=yes
+ac_cv_header_sys_reg_h=yes
+ac_cv_header_sys_signalfd_h=yes
+ac_cv_header_sys_stat_h=yes
+ac_cv_header_sys_types_h=yes
+ac_cv_header_unistd_h=yes
+ac_cv_host=x86_64-unknown-linux-gnu
+ac_cv_lib_numa_numa_alloc_onnode=no
+ac_cv_lib_numa_numa_available=no
+ac_cv_lib_numa_numa_move_pages=no
+ac_cv_member_struct_sigaction_sa_sigaction=yes
+ac_cv_member_struct_taskstats_freepages_count=yes
+ac_cv_member_struct_taskstats_nvcsw=yes
+ac_cv_member_struct_taskstats_read_bytes=yes
+ac_cv_objext=o
+ac_cv_path_EGREP='/bin/grep -E'
+ac_cv_path_GREP=/bin/grep
+ac_cv_path_install='/usr/bin/install -c'
+ac_cv_path_mkdir=/bin/mkdir
+ac_cv_prog_AWK=gawk
+ac_cv_prog_CPP='gcc -E'
+ac_cv_prog_ac_ct_AR=ar
+ac_cv_prog_ac_ct_CC=gcc
+ac_cv_prog_ac_ct_RANLIB=ranlib
+ac_cv_prog_ac_ct_STRIP=strip
+ac_cv_prog_cc_c89=
+ac_cv_prog_cc_g=yes
+ac_cv_prog_make_make_set=yes
+ac_cv_type_struct_modify_ldt_ldt_s=no
+ac_cv_type_struct_pt_regs=yes
+ac_cv_type_struct_user_desc=yes
+ac_cv_type_struct_user_regs_struct=no
+am_cv_CC_dependencies_compiler_type=none
 
 ## ----------------- ##
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL=''
+ACLOCAL='${SHELL} /root/t_ltp/missing --run aclocal-1.10'
 ACL_LIBS=''
 AIO_LIBS=''
-AMDEPBACKSLASH=''
-AMDEP_FALSE=''
+AMDEPBACKSLASH='\'
+AMDEP_FALSE='#'
 AMDEP_TRUE=''
-AMTAR=''
-AR=''
-AUTOCONF=''
-AUTOHEADER=''
-AUTOMAKE=''
-AWK=''
+AMTAR='${SHELL} /root/t_ltp/missing --run tar'
+AR='ar'
+AUTOCONF='${SHELL} /root/t_ltp/missing --run autoconf'
+AUTOHEADER='${SHELL} /root/t_ltp/missing --run autoheader'
+AUTOMAKE='${SHELL} /root/t_ltp/missing --run automake-1.10'
+AWK='gawk'
 CAP_LIBS=''
-CC=''
-CCDEPMODE=''
-CFLAGS=''
-CPP=''
+CC='gcc'
+CCDEPMODE='depmode=none'
+CFLAGS='-g -O2'
+CPP='gcc -E'
 CPPFLAGS=''
 CROSS_COMPILATION_FALSE=''
-CROSS_COMPILATION_TRUE=''
+CROSS_COMPILATION_TRUE='#'
 CRYPTO_LIBS=''
-CYGPATH_W=''
-DEFS=''
-DEPDIR=''
+CYGPATH_W='echo'
+DEFS='-DHAVE_CONFIG_H'
+DEPDIR='.deps'
 ECHO_C=''
 ECHO_N='-n'
 ECHO_T=''
-EGREP=''
+EGREP='/bin/grep -E'
 EXEEXT=''
-GREP=''
-HAVE_SECUREBITS=''
-INSTALL_DATA=''
-INSTALL_PROGRAM=''
-INSTALL_SCRIPT=''
-INSTALL_STRIP_PROGRAM=''
+GREP='/bin/grep'
+HAVE_SECUREBITS='no'
+INSTALL_DATA='${INSTALL} -m 644'
+INSTALL_PROGRAM='${INSTALL}'
+INSTALL_SCRIPT='${INSTALL}'
+INSTALL_STRIP_PROGRAM='$(install_sh) -c -s'
 LDFLAGS=''
-LEX=''
+LEX=':'
 LEXLIB=''
 LEX_OUTPUT_ROOT=''
 LIBOBJS=''
 LIBS=''
 LTLIBOBJS=''
-MAKEINFO=''
-MKDIR_P=''
+MAKEINFO='${SHELL} /root/t_ltp/missing --run makeinfo'
+MKDIR_P='/bin/mkdir -p'
 NUMA_CPPFLAGS=''
 NUMA_LIBS=''
-OBJEXT=''
-PACKAGE=''
+OBJEXT='o'
+PACKAGE='ltp'
 PACKAGE_BUGREPORT='ltp-list@lists.sourceforge.net'
 PACKAGE_NAME='ltp'
 PACKAGE_STRING='ltp LTP_VERSION'
 PACKAGE_TARNAME='ltp'
 PACKAGE_VERSION='LTP_VERSION'
 PATH_SEPARATOR=':'
-RANLIB=''
+RANLIB='ranlib'
 SELINUX_LIBS=''
 SET_MAKE=''
 SHELL='/bin/sh'
-STRIP=''
-UCLINUX=''
-VERSION=''
-WITH_BASH=''
-WITH_EXPECT=''
-WITH_OPEN_POSIX_TESTSUITE=''
-WITH_PERL=''
-WITH_POWER_MANAGEMENT_TESTSUITE=''
-WITH_PYTHON=''
-WITH_REALTIME_TESTSUITE=''
-YACC=''
+STRIP='strip'
+UCLINUX='0'
+VERSION='LTP_VERSION'
+WITH_BASH='no'
+WITH_EXPECT='no'
+WITH_OPEN_POSIX_TESTSUITE='no'
+WITH_PERL='no'
+WITH_POWER_MANAGEMENT_TESTSUITE='no'
+WITH_PYTHON='no'
+WITH_REALTIME_TESTSUITE='no'
+YACC='yacc'
 YFLAGS=''
-ac_ct_CC=''
+ac_ct_CC='gcc'
 am__fastdepCC_FALSE=''
-am__fastdepCC_TRUE=''
-am__include=''
+am__fastdepCC_TRUE='#'
+am__include='include'
 am__isrc=''
-am__leading_dot=''
+am__leading_dot='.'
 am__quote=''
-am__tar=''
-am__untar=''
+am__tar='${AMTAR} chof - "$$tardir"'
+am__untar='${AMTAR} xf -'
 bindir='${exec_prefix}/bin'
-build=''
+build='x86_64-unknown-linux-gnu'
 build_alias=''
-build_cpu=''
-build_os=''
-build_vendor=''
+build_cpu='x86_64'
+build_os='linux-gnu'
+build_vendor='unknown'
 datadir='${datarootdir}'
 datarootdir='${prefix}/share'
 docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
 dvidir='${docdir}'
-exec_prefix='NONE'
-host=''
+exec_prefix='${prefix}'
+host='x86_64-unknown-linux-gnu'
 host_alias=''
-host_cpu=''
-host_os=''
-host_vendor=''
+host_cpu='x86_64'
+host_os='linux-gnu'
+host_vendor='unknown'
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh=''
+install_sh='$(SHELL) /root/t_ltp/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'
 localstatedir='${prefix}/var'
 mandir='${datarootdir}/man'
-mkdir_p=''
+mkdir_p='/bin/mkdir -p'
 oldincludedir='/usr/include'
 pdfdir='${docdir}'
-prefix='NONE'
+prefix='/opt/ltp'
 program_transform_name='s,x,x,'
 psdir='${docdir}'
 sbindir='${exec_prefix}/sbin'
@@ -199,6 +3561,69 @@ target_alias=''
 #define PACKAGE_VERSION "LTP_VERSION"
 #define PACKAGE_STRING "ltp LTP_VERSION"
 #define PACKAGE_BUGREPORT "ltp-list@lists.sourceforge.net"
+#define PACKAGE "ltp"
+#define VERSION "LTP_VERSION"
+#define STDC_HEADERS 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_UNISTD_H 1
+#define HAVE_IFADDRS_H 1
+#define HAVE_PTHREAD_H 1
+#define HAVE_LINUX_GENETLINK_H 1
+#define HAVE_LINUX_MEMPOLICY_H 1
+#define HAVE_LINUX_NETLINK_H 1
+#define HAVE_SYS_EPOLL_H 1
+#define HAVE_SYS_INOTIFY_H 1
+#define HAVE_SYS_PRCTL_H 1
+#define HAVE_MKDTEMP 1
+#define HAVE_SYS_PTRACE_H 1
+#define HAVE_SYS_REG_H 1
+#define HAVE_ASM_PTRACE_H 1
+#define HAVE_LINUX_PTRACE_H 1
+#define HAVE_STRUCT_PT_REGS 1
+#define HAVE_DECL_PTRACE_GETSIGINFO 1
+#define HAVE_DECL_PTRACE_O_TRACEVFORKDONE 1
+#define HAVE_DECL_PTRACE_SETOPTIONS 1
+#define HAVE_FORK 1
+#define HAVE_DAEMON 1
+#define HAVE_VFORK 1
+#define HAVE_SYS_PRCTL_H 1
+#define HAVE_DECL_PR_CAPBSET_DROP 1
+#define HAVE_DECL_PR_CAPBSET_READ 1
+#define HAVE_STRUCT_SIGACTION_SA_SIGACTION 1
+#define HAVE_KEYCTL_SYSCALL 0
+#define HAVE_MODIFY_LDT 1
+#define HAVE_ASM_LDT_H 1
+#define HAVE_STRUCT_USER_DESC 1
+#define HAVE_LINUX_MEMPOLICY_H 1
+#define HAVE_DECL_MPOL_BIND 0
+#define HAVE_DECL_MPOL_DEFAULT 0
+#define HAVE_DECL_MPOL_F_ADDR 0
+#define HAVE_DECL_MPOL_F_MEMS_ALLOWED 0
+#define HAVE_DECL_MPOL_F_NODE 0
+#define HAVE_DECL_MPOL_INTERLEAVE 0
+#define HAVE_DECL_MPOL_PREFERRED 0
+#define HAVE_QUOTAV2 1
+#define HAVE_SIGNALFD 1
+#define HAVE_SYS_SIGNALFD_H 1
+#define HAVE_LINUX_TYPES_H 1
+#define HAVE_UNSHARE 1
+#define HAVE_LINUX_TASKSTATS_H 1
+#define HAVE_STRUCT_TASKSTATS_FREEPAGES_COUNT 1
+#define HAVE_STRUCT_TASKSTATS_NVCSW 1
+#define HAVE_STRUCT_TASKSTATS_READ_BYTES 1
+#define HAVE_DECL_CLOCK_MONOTONIC_RAW 1
+#define HAVE_DECL_CLOCK_REALTIME_COARSE 1
+#define HAVE_DECL_CLOCK_MONOTONIC_COARSE 1
+#define HAVE_DECL_MADV_MERGEABLE 1
+#define HAVE_MADV_MERGEABLE 1
+#define HAVE_FS_IOC_FLAGS 1
+#define HAVE_MREMAP_FIXED 1
 
-configure: caught signal 2
-configure: exit 1
+configure: exit 0

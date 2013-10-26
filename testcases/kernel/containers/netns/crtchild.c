@@ -28,9 +28,7 @@
 
 #include "libclone.h"
 
-const char *TCID = "crtchild";
-
-int main(void)
+int main()
 {
 	int status;
 	status = create_net_namespace("parent.sh", "child.sh");

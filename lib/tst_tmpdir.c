@@ -52,6 +52,11 @@
  *		tst_rmdir() is used to remove the directory created by
  *		tst_tmpdir().
  *
+ *		Setting the env variable "TDIRECTORY" will override the creation
+ *		of a new temp dir.  The directory specified by TDIRECTORY will
+ *		be used as the temporary directory, and no removal will be done
+ *		in tst_rmdir().
+ *
  *	 RETURN VALUE
  *		Neither tst_tmpdir() or tst_rmdir() has a return value.
  *
@@ -69,7 +74,6 @@
 
 #include "test.h"
 #include "rmobj.h"
-#include "ltp_priv.h"
 
 /*
  * Define some useful macros.
@@ -169,6 +173,7 @@ void tst_tmpdir(void)
 
 		tmpdir_cleanup();
 	}
+
 }
 
 void tst_rmdir(void)

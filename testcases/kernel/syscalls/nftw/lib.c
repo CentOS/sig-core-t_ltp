@@ -25,6 +25,8 @@
  *      lib.c - This file contains code for common failure conditions
  */
 
+#define _USC_LIB_
+
 #include "nftw.h"
 
 extern int s2;

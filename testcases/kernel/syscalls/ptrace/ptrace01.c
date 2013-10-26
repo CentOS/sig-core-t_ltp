@@ -138,7 +138,6 @@ int main(int ac, char **av)
 			if (i == 1) {
 				parent_act.sa_handler = parent_handler;
 				parent_act.sa_flags = SA_RESTART;
-				sigemptyset(&parent_act.sa_mask);
 
 				if ((sigaction(SIGUSR2, &parent_act, NULL))
 				    == -1) {
@@ -229,7 +228,6 @@ void do_child()
 		child_act.sa_handler = child_handler;
 	}
 	child_act.sa_flags = SA_RESTART;
-	sigemptyset(&child_act.sa_mask);
 
 	if ((sigaction(SIGUSR2, &child_act, NULL)) == -1) {
 		tst_resm(TWARN, "sigaction() failed in child");

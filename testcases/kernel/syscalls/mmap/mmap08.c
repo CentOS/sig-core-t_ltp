@@ -1,22 +1,25 @@
 /*
- * Copyright (c) International Business Machines  Corp., 2001
  *
- * This program is free software;  you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ *   Copyright (c) International Business Machines  Corp., 2001
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY;  without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
- * the GNU General Public License for more details.
+ *   This program is free software;  you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 2 of the License, or
+ *   (at your option) any later version.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program;  if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY;  without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
+ *   the GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program;  if not, write to the Free Software
+ *   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
 /*
+ * Test Name: mmap08
+ *
  * Test Description:
  *  Verify that mmap() fails to map a file creating a mapped region
  *  when the file specified by file descriptor is not valid.
@@ -24,9 +27,43 @@
  * Expected Result:
  *  mmap() should fail returning -1 and errno should get set to EBADF.
  *
+ * Algorithm:
+ *  Setup:
+ *   Setup signal handling.
+ *   Pause for SIGUSR1 if option specified.
+ *   Create temporary directory.
+ *
+ *  Test:
+ *   Loop if the proper options are given.
+ *   Execute system call
+ *   Check return code, if system call failed (return=-1)
+ *	if errno set == expected errno
+ *		Issue sys call fails with expected return value and errno.
+ *	Otherwise,
+ *		Issue sys call fails with unexpected errno.
+ *   Otherwise,
+ *	Issue sys call returns unexpected value.
+ *
+ *  Cleanup:
+ *   Print errno log and/or timing stats if options given
+ *   Delete the temporary directory(s)/file(s) created.
+ *
+ * Usage:  <for command-line>
+ *  mmap08 [-c n] [-e] [-i n] [-I x] [-P x] [-t]
+ *     where,  -c n : Run n copies concurrently.
+ *             -e   : Turn on errno logging.
+ *	       -i n : Execute test n times.
+ *	       -I x : Execute test for x seconds.
+ *	       -P x : Pause for x seconds between iterations.
+ *	       -t   : Turn on syscall timing.
+ *
  * HISTORY
  *	07/2001 Ported by Wayne Boyer
+ *
+ * RESTRICTIONS:
+ *  None.
  */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -45,15 +82,14 @@
 
 char *TCID = "mmap08";
 int TST_TOTAL = 1;
+int exp_enos[] = { EBADF, 0 };
 
-static int exp_enos[] = { EBADF, 0 };
+size_t page_sz;			/* system page size */
+char *addr;			/* addr of memory mapped region */
+int fildes;			/* file descriptor for temporary file */
 
-static size_t page_sz;
-static char *addr;
-static int fildes;
-
-static void setup(void);
-static void cleanup(void);
+void setup();			/* Main setup function of test */
+void cleanup();			/* cleanup function for the test */
 
 int main(int ac, char **av)
 {
@@ -65,6 +101,7 @@ int main(int ac, char **av)
 
 	setup();
 
+	/* set the expected errnos... */
 	TEST_EXP_ENOS(exp_enos);
 
 	for (lc = 0; TEST_LOOPING(lc); lc++) {
@@ -101,19 +138,30 @@ int main(int ac, char **av)
 
 	cleanup();
 	tst_exit();
+
 }
 
-static void setup(void)
+/*
+ * setup() - performs all ONE TIME setup for this test.
+ *	     Get the system page size.
+ *	     Create a temporary directory and a file under it.
+ *	     Write some known data into file and close it.
+ */
+void setup()
 {
-	char *tst_buff;
+	char *tst_buff;		/* test buffer to hold known data */
 
 	tst_sig(NOFORK, DEF_HANDLER, cleanup);
 
 	TEST_PAUSE;
 
-	page_sz = getpagesize();
+	/* Get the system page size */
+	if ((page_sz = getpagesize()) < 0) {
+		tst_brkm(TFAIL, NULL,
+			 "getpagesize() fails to get system page size");
+	}
 
-	if ((tst_buff = calloc(page_sz, sizeof(char))) == NULL) {
+	if ((tst_buff = (char *)calloc(page_sz, sizeof(char))) == NULL) {
 		tst_brkm(TFAIL, NULL,
 			 "calloc() failed to allocate space for tst_buff");
 	}
@@ -144,8 +192,18 @@ static void setup(void)
 	}
 }
 
-static void cleanup(void)
+/*
+ * cleanup() - performs all ONE TIME cleanup for this test at
+ *             completion or premature exit.
+ *	       Remove the temporary directory created.
+ */
+void cleanup()
 {
+	/*
+	 * print timing stats if that option was specified.
+	 * print errno log if that option was specified.
+	 */
 	TEST_CLEANUP;
+
 	tst_rmdir();
 }
