@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2000 Silicon Graphics, Inc.  All Rights Reserved.
- * Copyright (c) 2009 Cyril Hrubis chrubis@suse.cz
+ * Copyright (c) 2009-2013 Cyril Hrubis chrubis@suse.cz
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of version 2 of the GNU General Public License as
@@ -30,8 +30,6 @@
  *
  * http://oss.sgi.com/projects/GenInfo/NoticeExplan/
  */
-
-/* $Id: test.h,v 1.26 2010/01/10 22:27:15 yaberauneya Exp $ */
 
 #ifndef __TEST_H__
 #define __TEST_H__
@@ -66,23 +64,6 @@
 			      output; useful for pthread-like APIs :). */
 
 /*
- * To determine if you are on a Umk or Unicos system,
- * use sysconf(_SC_CRAY_SYSTEM).  But since _SC_CRAY_SYSTEM
- * is not defined until 90, it will be define here if not already
- * defined.
- * if (sysconf(_SC_CRAY_SYSTEM) == 1)
- *    on UMK
- * else   # returned 0 or -1
- *    on Unicos
- * This is only being done on CRAY systems.
- */
-#ifdef CRAY
-#ifndef _SC_CRAY_SYSTEM
-#define _SC_CRAY_SYSTEM  140
-#endif /* ! _SC_CRAY_SYSTEM */
-#endif /* CRAY */
-
-/*
  * Ensure that NUMSIGS is defined.
  * It should be defined in signal.h or sys/signal.h on
  * UNICOS/mk and IRIX systems.   On UNICOS systems,
@@ -108,61 +89,6 @@
 					/* that can be set to one of the following */
 					/* strings to control tst_res output */
 					/* If not set, TOUT_VERBOSE_S is assumed */
-
-#define TOUT_VERBOSE_S  "VERBOSE"	/* All test cases reported */
-#define TOUT_NOPASS_S   "NOPASS"	/* No pass test cases are reported */
-#define TOUT_DISCARD_S  "DISCARD"	/* No output is reported */
-
-/*
- * The following defines are used to control tst_tmpdir, tst_wildcard and t_mkchdir
- */
-
-#define TDIRECTORY  "TDIRECTORY"	/* The name of the environment variable */
-					/* that if is set, the value (directory) */
-					/* is used by all tests as their working */
-					/* directory.  tst_rmdir and t_rmdir will */
-					/* not attempt to clean up. */
-					/* This environment variable should only */
-					/* be set when doing system testing since */
-					/* tests will collide and break and fail */
-					/* because of setting it. */
-
-#define TEMPDIR	"/tmp"			/* This is the default temporary directory. */
-					/* The environment variable TMPDIR is */
-					/* used prior to this valid by tempnam(3). */
-					/* To control the base location of the */
-					/* temporary directory, set the TMPDIR */
-					/* environment variable to desired path */
-
-/*
- * The following define contains the name of an environmental variable
- * that can be used to specify the number of iterations.
- * It is supported in parse_opts.c and USC_setup.c.
- */
-#define USC_ITERATION_ENV       "USC_ITERATIONS"
-
-/*
- * The following define contains the name of an environmental variable
- * that can be used to specify to iteration until desired time
- * in floating point seconds has gone by.
- * Supported in USC_setup.c.
- */
-#define USC_LOOP_WALLTIME	"USC_LOOP_WALLTIME"
-
-/*
- * The following define contains the name of an environmental variable
- * that can be used to specify that no functional checks are wanted.
- * It is supported in parse_opts.c and USC_setup.c.
- */
-#define USC_NO_FUNC_CHECK	"USC_NO_FUNC_CHECK"
-
-/*
- * The following define contains the name of an environmental variable
- * that can be used to specify the delay between each loop iteration.
- * The value is in seconds (fractional numbers are allowed).
- * It is supported in parse_opts.c.
- */
-#define USC_LOOP_DELAY		"USC_LOOP_DELAY"
 
 /*
  * fork() can't be used on uClinux systems, so use FORK_OR_VFORK instead,
@@ -191,6 +117,8 @@ void tst_res(int ttype, char *fname, char *arg_fmt, ...)
 	__attribute__ ((format (printf, 3, 4)));
 void tst_resm(int ttype, char *arg_fmt, ...)
 	__attribute__ ((format (printf, 2, 3)));
+void tst_resm_hexd(int ttype, const void *buf, size_t size, char *arg_fmt, ...)
+	__attribute__ ((format (printf, 4, 5)));
 void tst_brk(int ttype, char *fname, void (*func)(void), char *arg_fmt, ...)
 	__attribute__ ((format (printf, 4, 5)));
 void tst_brkm(int ttype, void (*func)(void), char *arg_fmt, ...)
@@ -223,8 +151,6 @@ void tst_tmpdir(void);
  *
  * Recursively remove the temporary directory created by tst_tmpdir().
  * This function is intended ONLY as a companion to tst_tmpdir().
- * If the TDIRECTORY environment variable is set, no cleanup will be
- * attempted.
  */
 void tst_rmdir(void);
 /* get_tst_tmpdir()
@@ -246,6 +172,13 @@ char *get_high_address(void);
 /* lib/tst_kvercmp.c */
 void tst_getkver(int *k1, int *k2, int *k3);
 int tst_kvercmp(int r1, int r2, int r3);
+
+struct tst_kern_exv {
+	char *dist_name;
+	char *extra_ver;
+};
+
+int tst_kvercmp2(int r1, int r2, int r3, struct tst_kern_exv *vers);
 
 /* lib/tst_is_cwd.c */
 int tst_is_cwd_nfs(void);
@@ -279,6 +212,52 @@ int tst_get_path(const char *prog_name, char *buf, size_t buf_len);
 /* lib/tst_cpu.c */
 long tst_ncpus(void);
 long tst_ncpus_max(void);
+
+/* lib/tst_run_cmd.c
+ *
+ * vfork() + execvp() specified program.
+ * @argv: a list of two (at least program name + NULL) or more pointers that
+ * represent the argument list to the new program. The array of pointers
+ * must be terminated by a NULL pointer.
+ * @stdout_fd: file descriptor where to redirect stdout. Set -1 if
+ * redirection is not needed.
+ * @stderr_fd: file descriptor where to redirect stderr. Set -1 if
+ * redirection is not needed.
+ */
+void tst_run_cmd_fds(void (cleanup_fn)(void),
+			const char *const argv[],
+			int stdout_fd,
+			int stderr_fd);
+
+/* Executes tst_run_cmd_fds() and redirects its output to a file
+ * @stdout_path: path where to redirect stdout. Set NULL if redirection is
+ * not needed.
+ * @stderr_path: path where to redirect stderr. Set NULL if redirection is
+ * not needed.
+ */
+void tst_run_cmd(void (cleanup_fn)(void),
+		const char *const argv[],
+		const char *stdout_path,
+		const char *stderr_path);
+
+/* lib/tst_mkfs.c
+ *
+ * @dev: path to a device
+ * @fs_type: filesystem type
+ * @fs_opts: extra mkfs options
+ */
+void tst_mkfs(void (cleanup_fn)(void), const char *dev,
+              const char *fs_type, const char *fs_opts);
+
+/* lib/tst_fill_file.c
+ *
+ * Creates/ovewrites a file with specified pattern
+ * @path: path to file
+ * @pattern: pattern
+ * @bs: block size
+ * @bcount: blocks amount
+ */
+int tst_fill_file(const char *path, char pattern, size_t bs, size_t bcount);
 
 #ifdef TST_USE_COMPAT16_SYSCALL
 #define TCID_BIT_SUFFIX "_16"

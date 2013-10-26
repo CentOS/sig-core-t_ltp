@@ -28,7 +28,7 @@
                         '/usr/share/aclocal-1.10/strip.m4',
                         '/usr/share/aclocal-1.10/substnot.m4',
                         '/usr/share/aclocal-1.10/tar.m4',
-                        '/root/shub-ltp/ltp-full-20130503/testcases/realtime/m4/check.m4',
+                        '/root/shub-ltp/ltp-full-20130904/testcases/realtime/m4/check.m4',
                         'configure.in'
                       ],
                       {

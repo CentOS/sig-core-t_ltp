@@ -36,6 +36,7 @@ generate_makefile() {
 	local make_copy_prereq_cache=
 	local prereq_cache=
 	local tests=
+	local targets=
 
 	local makefile=$1
 	local prereq_dir=$2
@@ -45,6 +46,12 @@ generate_makefile() {
 	prereq_cache=$*
 
 	test_prefix=$(basename "$prereq_dir")
+
+	# special case for speculative testcases
+	if [ "$test_prefix" = "speculative" ]; then
+		test_prefix=$(basename $(echo "$prereq_dir" | sed s/speculative//))
+		test_prefix="${test_prefix}_speculative"
+	fi
 
 	# Add all source files to $make_target_prereq_cache.
 	for prereq in $prereq_cache; do
@@ -58,6 +65,15 @@ generate_makefile() {
 		fi
 
 		# Stuff that needs to be compiled.
+		if echo "$prereq" | grep -Eq '\.(run-test|sh|test)'; then
+			if [ "$targets" != "" ]; then
+				targets="$targets "
+			fi
+
+			targets="$targets${test_prefix}_$prereq"
+		fi
+
+		# Cache for generating compile rules.
 		case "$prereq" in
 		*.sh)
 			# Note that the sh scripts are copied later in order to
@@ -132,7 +148,7 @@ EOF
 
 	cat >> "$makefile.2" <<EOF
 INSTALL_TARGETS+=	${tests}
-MAKE_TARGETS+=		${tests}
+MAKE_TARGETS+=		${targets}
 
 EOF
 
@@ -220,7 +236,7 @@ EOF
 
 		cat >> "$makefile.3" <<EOF
 $dst: \$(srcdir)/$src
-	@cp \$< \$@
+	@cp \$(srcdir)/$src \$@
 
 EOF
 	done

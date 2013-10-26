@@ -62,7 +62,7 @@
 } while (0)
 
 static int verbose_print = 0;
-static char *map_address;
+static char *volatile map_address;
 static jmp_buf jmpbuf;
 static volatile char read_lock = 0;
 
@@ -228,11 +228,13 @@ void *read_mem(void *ptr)
 				tst_resm(TINFO, "page fault occurred due to "
 					 "a read after an unmap");
 		} else {
-			if (verbose_print)
+			if (verbose_print) {
+				read_lock = 1;
 				tst_resm(TINFO,
 					 "read_mem(): content of memory: %s",
 					 (char *)map_address);
-
+				read_lock = 0;
+			}
 			for (j = 0; j < args[1]; j++) {
 				read_lock = 1;
 				if (map_address[j] != 'a')
@@ -285,7 +287,7 @@ int main(int argc, char **argv)
 	int num_iter;
 	double exec_time;
 	int fd;
-	int status[2];
+	void *status;
 	pthread_t thid[2];
 	long chld_args[3];
 	extern char *optarg;
@@ -387,15 +389,15 @@ int main(int argc, char **argv)
 		tst_resm(TINFO, "created reading thread[%lu]", thid[1]);
 
 		for (i = 0; i < 2; i++) {
-			if ((ret = pthread_join(thid[i], (void *)&status[i])))
+			if ((ret = pthread_join(thid[i], &status)))
 				tst_brkm(TBROK, NULL,
 					 "main(): pthread_join(): %s",
 					 strerror(ret));
 
-			if (status[i])
+			if (status)
 				tst_brkm(TFAIL, NULL,
 					 "thread [%lu] - process exited "
-					 "with %d", thid[i], status[i]);
+					 "with %ld", thid[i], (long)status);
 		}
 
 		close(fd);

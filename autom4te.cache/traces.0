@@ -530,12 +530,79 @@ AC_CHECK_HEADERS(libaio.h,[
 		AIO_LIBS="")])
 AC_SUBST(AIO_LIBS)
 ])
+m4trace:m4/ltp-fortify_source.m4:23: -1- AC_DEFUN([LTP_CHECK_FORTIFY_SOURCE], [dnl
+	AC_MSG_CHECKING(whether to define _FORTIFY_SOURCE=2)
+	AC_COMPILE_IFELSE([AC_LANG_SOURCE([
+#include <stdio.h>
+
+int main(void)
+{
+#if !defined _FORTIFY_SOURCE && defined __OPTIMIZE__ && __OPTIMIZE__
+	return 0;
+#else
+# error Compiling without optimalizations
+#endif
+}
+])],[CPPFLAGS="$CPPFLAGS -D_FORTIFY_SOURCE=2"
+AC_MSG_RESULT(yes)],
+[AC_MSG_RESULT(no)])
+])
 m4trace:m4/ltp-fs_ioc_flags.m4:25: -1- AC_DEFUN([LTP_CHECK_FS_IOC_FLAGS], [
 AH_TEMPLATE(HAVE_FS_IOC_FLAGS,
 [Define to 1 if you have FS_IOC_GETFLAGS and FS_IOC_SETFLAGS in <linux/fs.h>.])
 AC_MSG_CHECKING([for FS_IOC_GETFLAGS and FS_IOC_SETFLAGS in <linux/fs.h>])
 AC_TRY_COMPILE([#include <linux/fs.h>], [int flags = FS_IOC_GETFLAGS;],
                AC_DEFINE(HAVE_FS_IOC_FLAGS) AC_MSG_RESULT(yes), AC_MSG_RESULT(no))
+])
+m4trace:m4/ltp-kernel_devel.m4:27: -1- AC_DEFUN([LTP_CHECK_KERNEL_DEVEL], [dnl
+
+AC_MSG_CHECKING([for kernel-devel])
+AC_ARG_WITH(
+	[linux-version],
+	[AC_HELP_STRING([--with-linux-version=VERSION],
+			[specify the Linux version to build modules for])],
+	[LINUX_VERSION="${withval}"],
+	AS_IF([test "$cross_compiling" = "no"],
+		[LINUX_VERSION=`uname -r`]))
+
+AC_SUBST(LINUX_VERSION)
+
+AC_ARG_WITH([linux-dir],
+	[AC_HELP_STRING([--with-linux-dir=DIR],
+			[specify path to kernel-devel directory])],
+	[LINUX_DIR="${withval}"],
+	AS_IF([test -n "$LINUX_VERSION"],
+		[LINUX_DIR="/lib/modules/$LINUX_VERSION/build"]))
+
+AC_SUBST(LINUX_DIR)
+
+if test -f "$LINUX_DIR/Makefile"; then
+	LINUX_VERSION_MAJOR=`sed -n '0,/^VERSION = [[0-9]]*/s,\
+^VERSION = ,,p' ${LINUX_DIR}/Makefile`
+
+	LINUX_VERSION_PATCH=`sed -n '0,/^PATCHLEVEL = [[0-9]]*/s,\
+^PATCHLEVEL = ,,p' ${LINUX_DIR}/Makefile`
+fi
+
+if [[ -n "$LINUX_VERSION_MAJOR" -a -n "$LINUX_VERSION_PATCH" ]]; then
+	WITH_MODULES="yes"
+else
+	WITH_MODULES="no"
+fi
+
+AC_SUBST(LINUX_VERSION_MAJOR)
+AC_SUBST(LINUX_VERSION_PATCH)
+
+AC_MSG_RESULT([$WITH_MODULES])
+
+AC_ARG_WITH(
+	[modules],
+	[AC_HELP_STRING([--without-modules],
+			[disable auto-building kernel modules])],
+			[WITH_MODULES="no"],
+			[])
+
+AC_SUBST(WITH_MODULES)
 ])
 m4trace:m4/ltp-keyctl.m4:23: -1- AC_DEFUN([LTP_CHECK_SYSCALL_KEYCTL], [AC_LINK_IFELSE([AC_LANG_SOURCE([
 #include <sys/types.h>
@@ -976,6 +1043,7 @@ configure.ac:132: the top level])
 m4trace:configure.ac:139: -1- m4_pattern_allow([^WITH_REALTIME_TESTSUITE$])
 m4trace:configure.ac:141: -1- m4_pattern_allow([^subdirs$])
 m4trace:configure.ac:143: -1- m4_pattern_allow([^WITH_REALTIME_TESTSUITE$])
+m4trace:configure.ac:147: -1- LTP_CHECK_FORTIFY_SOURCE
 m4trace:configure.ac:148: -1- LTP_CHECK_MKDTEMP
 m4trace:configure.ac:149: -1- LTP_CHECK_CAPABILITY_SUPPORT
 m4trace:configure.ac:149: -1- m4_pattern_allow([^HAVE_LIBCAP$])
@@ -1088,7 +1156,28 @@ m4trace:configure.ac:169: -1- _m4_warn([obsolete], [The macro `AC_TRY_COMPILE' i
 You should run autoupdate.], [../../lib/autoconf/general.m4:2470: AC_TRY_COMPILE is expanded from...
 m4/ltp-mremap_fixed.m4:25: LTP_CHECK_MREMAP_FIXED is expanded from...
 configure.ac:169: the top level])
-m4trace:configure.ac:171: -1- m4_pattern_allow([^LIB@&t@OBJS$])
-m4trace:configure.ac:171: -1- m4_pattern_allow([^LTLIBOBJS$])
-m4trace:configure.ac:171: -1- _AC_AM_CONFIG_HEADER_HOOK(["$ac_file"])
-m4trace:configure.ac:171: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
+m4trace:configure.ac:170: -1- LTP_CHECK_KERNEL_DEVEL
+m4trace:configure.ac:170: -1- _m4_warn([obsolete], [The macro `AC_HELP_STRING' is obsolete.
+You should run autoupdate.], [../../lib/autoconf/general.m4:209: AC_HELP_STRING is expanded from...
+../../lib/autoconf/general.m4:1443: AC_ARG_WITH is expanded from...
+m4/ltp-kernel_devel.m4:27: LTP_CHECK_KERNEL_DEVEL is expanded from...
+configure.ac:170: the top level])
+m4trace:configure.ac:170: -1- m4_pattern_allow([^LINUX_VERSION$])
+m4trace:configure.ac:170: -1- _m4_warn([obsolete], [The macro `AC_HELP_STRING' is obsolete.
+You should run autoupdate.], [../../lib/autoconf/general.m4:209: AC_HELP_STRING is expanded from...
+../../lib/autoconf/general.m4:1443: AC_ARG_WITH is expanded from...
+m4/ltp-kernel_devel.m4:27: LTP_CHECK_KERNEL_DEVEL is expanded from...
+configure.ac:170: the top level])
+m4trace:configure.ac:170: -1- m4_pattern_allow([^LINUX_DIR$])
+m4trace:configure.ac:170: -1- m4_pattern_allow([^LINUX_VERSION_MAJOR$])
+m4trace:configure.ac:170: -1- m4_pattern_allow([^LINUX_VERSION_PATCH$])
+m4trace:configure.ac:170: -1- _m4_warn([obsolete], [The macro `AC_HELP_STRING' is obsolete.
+You should run autoupdate.], [../../lib/autoconf/general.m4:209: AC_HELP_STRING is expanded from...
+../../lib/autoconf/general.m4:1443: AC_ARG_WITH is expanded from...
+m4/ltp-kernel_devel.m4:27: LTP_CHECK_KERNEL_DEVEL is expanded from...
+configure.ac:170: the top level])
+m4trace:configure.ac:170: -1- m4_pattern_allow([^WITH_MODULES$])
+m4trace:configure.ac:172: -1- m4_pattern_allow([^LIB@&t@OBJS$])
+m4trace:configure.ac:172: -1- m4_pattern_allow([^LTLIBOBJS$])
+m4trace:configure.ac:172: -1- _AC_AM_CONFIG_HEADER_HOOK(["$ac_file"])
+m4trace:configure.ac:172: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS

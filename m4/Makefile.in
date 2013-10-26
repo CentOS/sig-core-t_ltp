@@ -37,7 +37,9 @@ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ltp-acl.m4 \
 	$(top_srcdir)/m4/ltp-cap.m4 $(top_srcdir)/m4/ltp-crypto.m4 \
 	$(top_srcdir)/m4/ltp-eventfd.m4 \
+	$(top_srcdir)/m4/ltp-fortify_source.m4 \
 	$(top_srcdir)/m4/ltp-fs_ioc_flags.m4 \
+	$(top_srcdir)/m4/ltp-kernel_devel.m4 \
 	$(top_srcdir)/m4/ltp-keyctl.m4 $(top_srcdir)/m4/ltp-madvise.m4 \
 	$(top_srcdir)/m4/ltp-mkdtemp.m4 \
 	$(top_srcdir)/m4/ltp-modify_ldt.m4 \
@@ -95,6 +97,10 @@ LEXLIB = @LEXLIB@
 LEX_OUTPUT_ROOT = @LEX_OUTPUT_ROOT@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
+LINUX_DIR = @LINUX_DIR@
+LINUX_VERSION = @LINUX_VERSION@
+LINUX_VERSION_MAJOR = @LINUX_VERSION_MAJOR@
+LINUX_VERSION_PATCH = @LINUX_VERSION_PATCH@
 LTLIBOBJS = @LTLIBOBJS@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
@@ -117,6 +123,7 @@ UCLINUX = @UCLINUX@
 VERSION = @VERSION@
 WITH_BASH = @WITH_BASH@
 WITH_EXPECT = @WITH_EXPECT@
+WITH_MODULES = @WITH_MODULES@
 WITH_OPEN_POSIX_TESTSUITE = @WITH_OPEN_POSIX_TESTSUITE@
 WITH_PERL = @WITH_PERL@
 WITH_POWER_MANAGEMENT_TESTSUITE = @WITH_POWER_MANAGEMENT_TESTSUITE@

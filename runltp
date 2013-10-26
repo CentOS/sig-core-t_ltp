@@ -206,7 +206,7 @@ main()
     local TAG_RESTRICT_STRING=""
     local PAN_COMMAND=""
     local DEFAULT_FILE_NAME_GENERATION_TIME=`date +"%Y_%b_%d-%Hh_%Mm_%Ss"`
-
+    local DEVICE_FS_TYPE="ext2"
     local scenfile=
 
     version_date=$(cat "$LTPROOT/Version")
@@ -317,9 +317,9 @@ main()
         K)
 	    case $OPTARG in
         	   /*)
-                	DMESG_DIR="$OPTARG-dmesg-output-`echo $$-``date +%X | tr -d ' '`";;
+			DMESG_DIR="$OPTARG-dmesg-output-`echo $$-``date +%X | tr -d ' '`";;
 	            *)
-        	        DMESG_DIR="$LTPROOT/output/$OPTARG-dmesg-output-`echo $$-``date +%X | tr -d ' '`";;
+		        DMESG_DIR="$LTPROOT/output/$OPTARG-dmesg-output-`echo $$-``date +%X | tr -d ' '`";;
 	    esac
             mkdir -p $DMESG_DIR
             ALT_DMESG_OUT=1;;
@@ -537,18 +537,16 @@ main()
         {
             [ -z "$RHOST" ] && \
             {
-                echo \
-                "INFO: Enter RHOST = 'name of the remote host machine'"
-                echo -n "-> "
+                printf "INFO: Enter RHOST = 'name of the remote host machine'"
+                printf "\n-> "
                 read RHOST
             }
 
             [ -z "$PASSWD" ] && \
             {
-                echo " "
-                echo \
-                "INFO: Enter PASSWD = 'root passwd of the remote host machine'"
-                echo -n "-> "
+                printf "\nINFO: "
+                printf "Enter PASSWD = 'root passwd of the remote host machine'"
+                printf "\n-> "
                 read PASSWD
             }
             export RHOST=$RHOST
@@ -663,7 +661,7 @@ main()
     fi
 
     # check for required users and groups
-    ${LTPROOT}/IDcheck.sh &>/dev/null || \
+    ${LTPROOT}/IDcheck.sh || \
     {
         echo "WARNING: required users and groups not present"
         echo "WARNING: some test cases may fail"
@@ -703,32 +701,6 @@ main()
     fi
 
     if [ -n "$DEVICE" ]; then
-        mnt_pnt=`mktemp -d "${TMP}/mnt_pnt.XXXXXX"`
-        if [ -n "$DEVICE_FS_TYPE" ]; then
-            mount -t $DEVICE_FS_TYPE $DEVICE $mnt_pnt
-        else
-            mount $DEVICE $mnt_pnt
-        fi
-
-        if [ $? -ne 0 ]; then
-            echo "FATAL: can't mount block device $DEVICE."
-            exit 1
-        fi
-
-        if [ -z "$DEVICE_FS_TYPE" ]; then
-            DEVICE_FS_TYPE=`cat /proc/mounts | awk "{if (\\\$1 == \"$DEVICE\") print \\\$3; }"`
-            echo "determine file system $DEVICE_FS_TYPE on block device $DEVICE"
-        fi
-
-        umount $DEVICE
-        if [ $? -ne 0 ]; then
-            echo "FATAL: can't umount $DEVICE"
-            exit 1
-        fi
-        rm -rf $mnt_pnt
-    fi
-
-    if [ -n "$DEVICE" ]; then
         sed -i "s|DEVICE_FS_TYPE|$DEVICE_FS_TYPE|"  ${TMP}/alltests
     fi
 
@@ -759,15 +731,15 @@ main()
     #$PAN_COMMAND #Duplicated code here, because otherwise if we fail, only "PAN_COMMAND" gets output
 
     ## Display the Output/Log/Failed/HTML file names here
-    echo -e "LOG File: \c"
+    printf "LOG File: "
     echo $LOGFILE | cut -b4-
 
     if [ "$OUTPUTFILE" ]; then
-       echo -e "OUTPUT File: \c"
+       printf "OUTPUT File: "
        echo $OUTPUTFILE | cut -b4-
     fi
 
-    echo -e "FAILED COMMAND File: \c"
+    printf "FAILED COMMAND File: "
     echo $FAILCMDFILE | cut -b4-
 
     if [ "$HTMLFILE" ]; then
@@ -984,7 +956,7 @@ main()
 create_block()
 {
     #create a block device with ext4 filesystem.
-    dd if=/dev/zero of=${TMP}/test.img bs=1kB count=10240 &>/dev/null
+    dd if=/dev/zero of=${TMP}/test.img bs=1kB count=10240
     if [ $? -ne 0 ]; then
         echo "Failed to create loopback device image, please check disk space and re-run"
         return 1
@@ -996,18 +968,13 @@ create_block()
             return 1
         else
             ##attach the created file to loop dev.
-            losetup $LOOP_DEV ${TMP}/test.img &>/dev/null
+            losetup $LOOP_DEV ${TMP}/test.img
             if [ $? -ne 0 ]; then
                 echo "losetup failed to create block device"
                 return 1
-            else
-                mkfs.ext4 $LOOP_DEV &>/dev/null
-                [ $? -ne 0 ] && (echo "creating a ext4 block device failed" && return 1)
-                #set the values in alltests which require block device.
-                DEVICE=$LOOP_DEV
-                DEVICE_FS_TYPE="ext4"
-                return 0
             fi
+            DEVICE=$LOOP_DEV
+            return 0
         fi
     fi
 }
@@ -1015,7 +982,6 @@ create_block()
 cleanup()
 {
     [ "$LOOP_DEV" ] && losetup -d $LOOP_DEV
-    [ -e "${TEMP}/test.img" ] && rm -f ${TEMP}/test.img
     rm -rf ${TMP}
 }
 

@@ -641,6 +641,11 @@ enable_option_checking=no
 ac_func_list=
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
+WITH_MODULES
+LINUX_VERSION_PATCH
+LINUX_VERSION_MAJOR
+LINUX_DIR
+LINUX_VERSION
 ACL_LIBS
 NUMA_LIBS
 NUMA_CPPFLAGS
@@ -765,6 +770,9 @@ with_python
 with_power_management_testsuite
 with_open_posix_testsuite
 with_realtime_testsuite
+with_linux_version
+with_linux_dir
+with_modules
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1426,6 +1434,10 @@ Optional Packages:
   --with-realtime-testsuite
                           compile and install the realtime testsuite
                           (default=no)
+  --with-linux-version=VERSION
+                          specify the Linux version to build modules for
+  --with-linux-dir=DIR    specify path to kernel-devel directory
+  --without-modules       disable auto-building kernel modules
 
 Some influential environment variables:
   CC          C compiler command
@@ -5053,6 +5065,57 @@ else
 fi
 
 # END testsuites knobs
+	{ $as_echo "$as_me:$LINENO: checking whether to define _FORTIFY_SOURCE=2" >&5
+$as_echo_n "checking whether to define _FORTIFY_SOURCE=2... " >&6; }
+	cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+#include <stdio.h>
+
+int main(void)
+{
+#if !defined _FORTIFY_SOURCE && defined __OPTIMIZE__ && __OPTIMIZE__
+	return 0;
+#else
+# error Compiling without optimalizations
+#endif
+}
+
+_ACEOF
+rm -f conftest.$ac_objext
+if { (ac_try="$ac_compile"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
+$as_echo "$ac_try_echo") >&5
+  (eval "$ac_compile") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest.$ac_objext; then
+  CPPFLAGS="$CPPFLAGS -D_FORTIFY_SOURCE=2"
+{ $as_echo "$as_me:$LINENO: result: yes" >&5
+$as_echo "yes" >&6; }
+else
+  $as_echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	{ $as_echo "$as_me:$LINENO: result: no" >&5
+$as_echo "no" >&6; }
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
 
 
 
@@ -10473,6 +10536,66 @@ $as_echo "no" >&6; }
 fi
 
 rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+
+
+{ $as_echo "$as_me:$LINENO: checking for kernel-devel" >&5
+$as_echo_n "checking for kernel-devel... " >&6; }
+
+# Check whether --with-linux-version was given.
+if test "${with_linux_version+set}" = set; then
+  withval=$with_linux_version; LINUX_VERSION="${withval}"
+else
+  if test "$cross_compiling" = "no"; then
+  LINUX_VERSION=`uname -r`
+fi
+
+fi
+
+
+
+
+
+# Check whether --with-linux-dir was given.
+if test "${with_linux_dir+set}" = set; then
+  withval=$with_linux_dir; LINUX_DIR="${withval}"
+else
+  if test -n "$LINUX_VERSION"; then
+  LINUX_DIR="/lib/modules/$LINUX_VERSION/build"
+fi
+
+fi
+
+
+
+
+if test -f "$LINUX_DIR/Makefile"; then
+	LINUX_VERSION_MAJOR=`sed -n '0,/^VERSION = [0-9]*/s,\
+^VERSION = ,,p' ${LINUX_DIR}/Makefile`
+
+	LINUX_VERSION_PATCH=`sed -n '0,/^PATCHLEVEL = [0-9]*/s,\
+^PATCHLEVEL = ,,p' ${LINUX_DIR}/Makefile`
+fi
+
+if [ -n "$LINUX_VERSION_MAJOR" -a -n "$LINUX_VERSION_PATCH" ]; then
+	WITH_MODULES="yes"
+else
+	WITH_MODULES="no"
+fi
+
+
+
+
+{ $as_echo "$as_me:$LINENO: result: $WITH_MODULES" >&5
+$as_echo "$WITH_MODULES" >&6; }
+
+
+# Check whether --with-modules was given.
+if test "${with_modules+set}" = set; then
+  withval=$with_modules; WITH_MODULES="no"
+fi
+
+
+
 
 
 cat >confcache <<\_ACEOF
