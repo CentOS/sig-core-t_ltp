@@ -16,19 +16,9 @@ echo "`date +%H:%M:%S` - $LTPtext running make"
 make all >/dev/null
 echo "`date +%H:%M:%S` - $LTPtext installing"
 make install >/dev/null
+echo "`date +%H:%M:%S` - $LTPtext fix for RHSA-2019:0717 - thanks to pgreco"
+usermod -a -G bin root
 
 echo "`date +%H:%M:%S` - $LTPtext Starting $LTPtext: This is expected to take 20-25 mins"
 #/opt/ltp/runltplite.sh -l result.txt -p -q
 /opt/ltp/runltplite.sh -p -q
-
-#ret_val=$(grep -c FAIL /opt/ltp/results/result.txt)
-
-#if [ $ret_val -gt 0 ]
-#  then
-#  echo "`date +%H:%M:%S` - $LTPtext The following tests FAILed: "
-#  grep FAIL /opt/ltp/results/result.txt
-#else
-#  echo "`date +%H:%M:%S` - $LTPtext All tests completed successfully"
-#fi
-
-#exit $ret_val
