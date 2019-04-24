@@ -18,8 +18,9 @@ echo "`date +%H:%M:%S` - $LTPtext installing"
 make install >/dev/null
 echo "`date +%H:%M:%S` - $LTPtext fix for RHSA-2019:0717 - thanks to pgreco"
 usermod -a -G bin root
-newgrp -
 
+su --login << __EOF__
 echo "`date +%H:%M:%S` - $LTPtext Starting $LTPtext: This is expected to take 20-25 mins"
 #/opt/ltp/runltplite.sh -l result.txt -p -q
 /opt/ltp/runltplite.sh -p -q
+__EOF__
